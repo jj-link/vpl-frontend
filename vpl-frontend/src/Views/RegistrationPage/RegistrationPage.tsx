@@ -20,7 +20,12 @@ export const RegistrationPage: React.FC = () => {
 
 
   useEffect(() => {
-    navigator('/login');
+    if(userState.isRegistered != true){
+      console.log("we didnt input proper information");
+    }
+    else{
+      navigator('/login');
+    }
     console.log("hello robert");
   }, [userState.isRegistered]);
 
