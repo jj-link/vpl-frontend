@@ -14,7 +14,7 @@ interface UserSliceState {
     isRegistered?: boolean
     isLoggedIn?: boolean
    
-    //currentProfile?: IUser;
+    currentProfile?: IUser;
 }
 
 // initial state
@@ -34,6 +34,8 @@ type Login = {
 
 //let res: any;
 
+let userData:any;
+
 // being called from Login Button inside LoginForm
 export const loginUser = createAsyncThunk(
     'user/login',
@@ -41,7 +43,8 @@ export const loginUser = createAsyncThunk(
         try {
             //axios.defaults.withCredentials = true;
             const res = await axios.post('http://localhost:8000/user/login', credentials);
-  
+            userData = res.data;
+            //console.log(userData);
             return {
                 userId: res.data.user_id,
                 email: res.data.email,
@@ -85,6 +88,19 @@ export const registerUser = createAsyncThunk(
     }
 )
 
+
+export const logout = createAsyncThunk(
+    "user/logout",
+    async (thunkAPI) => {
+        try{
+            //axios.defaults.withCredentials = true;
+            //const res = axios.get("http://localhost:8000/user/logout");
+        } catch(e){
+            console.log(e);
+        }
+    }
+)
+
 // ================= reducer actions ========================
 // create slice and will be exported as default
 export const UserSlice = createSlice({
@@ -105,7 +121,7 @@ export const UserSlice = createSlice({
         });
         builder.addCase(loginUser.fulfilled, (state, action) => {
           // payload is the return from our asyn api call
-            state.user = action.payload;
+            state.user = userData;
             state.error = false;
             state.loading = false;
             state.isLoggedIn = true;
@@ -129,6 +145,12 @@ export const UserSlice = createSlice({
             state.error = true;
             state.loading = false;
             state.isRegistered = false;
+
+
+        });
+        builder.addCase(logout.fulfilled, (state, action)=> {
+            state.user = undefined;
+            state.isLoggedIn = false;
         });
     }
 })
