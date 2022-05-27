@@ -17,13 +17,13 @@ export const LoginPage: React.FC = () => {
   const navigator = useNavigate();
 
   useEffect(() => {
-    if (!userState.error && userState.user) {
+    if (userState.isLoggedIn != false) {
       navigator('/home');
     }
     else{
       console.log("credentials failed");
     }
-  }, [userState]);
+  }, [userState.isLoggedIn]);
 
 
   return (

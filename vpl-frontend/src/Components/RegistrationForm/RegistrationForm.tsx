@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Store';
 import { registerUser, toggleError } from '../../Slices/UserSlice';
+import {Link} from 'react-router-dom';
 //import "./LoginForm.css"
 export const RegistrationForm: React.FC = () => {
     const [email, setEmail] = useState<string>("");
@@ -51,7 +52,13 @@ export const RegistrationForm: React.FC = () => {
                 </div>
                 
             </form>
-            <button className="register-button" onClick={handleRegister}>Register</button>
+            <div className='Register-buttons'>
+                <button className="login-button" onClick={handleRegister}>Register</button>
+                <Link to={"/login"} className="nav-login">
+                    <button className='login-button'>Back To Login</button>
+                </Link>
+            </div>
+    
         </div>
     )
 }
