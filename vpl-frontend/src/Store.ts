@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './Slices/UserSlice';
-import bookReducer from './Slices/BookSlice';
+//import bookReducer from './Slices/BookSlice';
 
-export const store = configureStore({
+export const Store = configureStore({
     reducer: {
         user: userReducer,
-        books: bookReducer
+        //books: bookReducer
     }
 });
 
 //for state
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof Store.getState>;
 
 // for dispatch actions
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = typeof Store.dispatch;
