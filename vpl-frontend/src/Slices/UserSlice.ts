@@ -12,6 +12,7 @@ interface UserSliceState {
     user?: IUser;
     users?: IUser[];
     isRegistered?: boolean
+    isLoggedIn?: boolean
    
     //currentProfile?: IUser;
 }
@@ -20,7 +21,8 @@ interface UserSliceState {
 const initialUserState: UserSliceState = {
     loading: false,
     error: false,
-    isRegistered: false
+    isRegistered: false,
+    isLoggedIn: false
     // user is nothing becuase we do not have user yet
 };
 
@@ -37,8 +39,8 @@ export const loginUser = createAsyncThunk(
     'user/login',
     async (credentials: Login, thunkAPI) => {
         try {
-            axios.defaults.withCredentials = true;
-            const res = await axios.post('http://localhost:8000/users/login', credentials);
+            //axios.defaults.withCredentials = true;
+            const res = await axios.post('http://localhost:8000/user/login', credentials);
   
             return {
                 userId: res.data.user_id,
@@ -106,6 +108,7 @@ export const UserSlice = createSlice({
             state.user = action.payload;
             state.error = false;
             state.loading = false;
+            state.isLoggedIn = true;
         });
         builder.addCase(loginUser.rejected, (state, action) => {
             state.error = true;
@@ -120,11 +123,12 @@ export const UserSlice = createSlice({
             state.user = action.payload;
             state.error = false;
             state.loading = false;
-            state.isRegistered = !state.isRegistered;
+            state.isRegistered = true;//!state.isRegistered;
         });
         builder.addCase(registerUser.rejected, (state, action) => {
             state.error = true;
             state.loading = false;
+            state.isRegistered = false;
         });
     }
 })

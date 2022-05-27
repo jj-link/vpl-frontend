@@ -10,7 +10,11 @@ export const HomePage: React.FC = () => {
 
     useEffect(() => {
         if (!userInfo.user) {
+          console.log("this ran and went back to login");
           navigator('/login');
+        }
+        else{
+          console.log(userInfo);
         }
         // dispatch(getAllResolved());
       }, [userInfo]);
@@ -18,7 +22,7 @@ export const HomePage: React.FC = () => {
     return(
         <div className="home-page">
             <h2>Welcome to the Home Page</h2>
-
+            <h3>We got a user but we dont have a controller to retrive details yet</h3>
         </div>
     )
 }

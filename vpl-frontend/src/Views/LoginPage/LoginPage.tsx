@@ -15,16 +15,16 @@ export const LoginPage: React.FC = () => {
   const userState = useSelector((state: RootState) => state.user);
 
   const navigator = useNavigate();
-/*
+
   useEffect(() => {
-    if (!userState.error) {
-        navigator('/home');
+    if (!userState.error && userState.user) {
+      navigator('/home');
     }
     else{
-        console.log("login error");
+      console.log("credentials failed");
     }
-  }, [userState, userState.error]);
-*/
+  }, [userState]);
+
 
   return (
 

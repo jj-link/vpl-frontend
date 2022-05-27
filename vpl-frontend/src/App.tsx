@@ -10,7 +10,7 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={<Navigate to="/register" replace />} />
         <Route path='/register' element={<RegistrationPage/>}/>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
