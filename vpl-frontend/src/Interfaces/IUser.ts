@@ -7,5 +7,5 @@ export interface IUser {
     firstName: string,
     lastName: string,
     books?: IBook[],
-    userRole: number
+    userRole?: number
 }
