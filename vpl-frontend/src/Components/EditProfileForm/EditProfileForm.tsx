@@ -1,16 +1,32 @@
-import React, {useState} from 'react';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../Store';
-import { registerUser, toggleError } from '../../Slices/UserSlice';
-import {Link} from 'react-router-dom';
-//import "./LoginForm.css"
-export const RegistrationForm: React.FC = () => {
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { editProfile } from "../../Slices/UserSlice";
+import { AppDispatch, RootState } from "../../Store";
+
+export const EditProfileForm:React.FC = () => {
+
+    const userState = useSelector((state:RootState) => state.user);
+
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
+
     const dispatch: AppDispatch = useDispatch();
-    
+
+    const handleEditProfile = (event:React.MouseEvent<HTMLButtonElement>) => {
+        let credentials = {
+            userId: userState.user?.userId!,
+            email,
+            password,
+            firstName,
+            lastName
+        };
+        console.log(credentials);
+        dispatch(editProfile(credentials));
+    }
+
     const handleInput = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.name === "firstName"){
             setFirstName(event.target.value);
@@ -24,17 +40,13 @@ export const RegistrationForm: React.FC = () => {
             setPassword(event.target.value);
         }
     }
-    const handleRegister = (event:React.MouseEvent<HTMLButtonElement>) => {
-        let credentials = {email, password, firstName, lastName};
-        dispatch(registerUser(credentials));
-    }
-    
+
     return(
-        <div className="registration">
+        <div className="edit-profile">
             <div className="header-container">
-                <h1 className="register-header">Registration Form</h1>
+                <h1 className="edit-profile-header">Edit Profile</h1>
             </div>
-            <form className="register-form">
+            <form className="edit-rofile-form">
                 <div className="first-name-container">
                     <h4 className="input-field-label">Please Enter First Name</h4>
                     <input className="registration-input" type="text" name="firstName" placeholder="First name" onChange={handleInput}/>
@@ -54,7 +66,7 @@ export const RegistrationForm: React.FC = () => {
                 
             </form>
             <div className='Register-buttons'>
-                <button className="login-button" onClick={handleRegister}>Register</button>
+                <button className="login-button" onClick={handleEditProfile}>Register</button>
                 <Link to={"/login"} className="nav-login">
                     <button className='login-button'>Back To Login</button>
                 </Link>
@@ -62,4 +74,5 @@ export const RegistrationForm: React.FC = () => {
     
         </div>
     )
+
 }

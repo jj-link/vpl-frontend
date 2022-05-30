@@ -3,9 +3,6 @@ import { IUser } from '../Interfaces/IUser';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 interface UserSliceState {
     loading: boolean;
     error: boolean;
@@ -60,12 +57,12 @@ export const loginUser = createAsyncThunk(
     }
 )
 
-  type register = {
-      email: string;
-      password: string;
-      firstName: string;
-      lastName: string
-  }
+type register = {
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string
+}
 
 export const registerUser = createAsyncThunk(
     'user/register',
@@ -98,6 +95,38 @@ export const logout = createAsyncThunk(
         } catch(e){
             console.log(e);
         }
+    }
+)
+
+type EditUser = {
+    userId: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+}
+
+export const editProfile = createAsyncThunk(
+    "user/edit",
+    async (userInfo:EditUser, thunkAPI) => {
+        try {
+            axios.defaults.withCredentials = true;
+            const res = await axios.post("http://localhost:8000/user/edit", userInfo);
+            
+            console.log(res.data);
+
+            return {
+                userId: res.data.userId,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                email: res.data.email,
+                password: res.data.password
+            }
+            
+        } catch(e) {
+            console.log(e);
+        }
+
     }
 )
 
@@ -145,13 +174,27 @@ export const UserSlice = createSlice({
             state.error = true;
             state.loading = false;
             state.isRegistered = false;
-
-
         });
         builder.addCase(logout.fulfilled, (state, action)=> {
             state.user = undefined;
             state.isLoggedIn = false;
         });
+
+        // editProfile
+
+        builder.addCase(editProfile.pending, (state) => {
+            state.loading = true;            
+        });
+        builder.addCase(editProfile.fulfilled, (state, action) => {
+            state.user = action.payload;
+            state.isLoggedIn = true;
+            state.loading = false;
+            state.error = false;
+        });
+        builder.addCase(editProfile.rejected, (state) => {
+            state.loading = false;
+            state.error = true;
+        })
     }
 })
 

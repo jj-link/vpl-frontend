@@ -19,11 +19,6 @@ export const Navbar: React.FC = () => {
     return(
         <nav className="navbar">
         <ul className='nav-menu'>
-            {/*
-            <li className="nav-item">
-                <Link to={`/user/${user?.userId}`} className="nav-link">Profile</Link>
-            </li>
-            */}
             <li className="nav-item">
                 <Link to={"/home"} className="nav-link">Home</Link>
             </li>
