@@ -15,18 +15,7 @@ export const EditProfileForm:React.FC = () => {
 
     const dispatch: AppDispatch = useDispatch();
 
-    const handleEditProfile = (event:React.MouseEvent<HTMLButtonElement>) => {
-        let credentials = {
-            userId: userState.user?.userId!,
-            email,
-            password,
-            firstName,
-            lastName
-        };
-        console.log(credentials);
-        dispatch(editProfile(credentials));
-    }
-
+    
     const handleInput = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.name === "firstName"){
             setFirstName(event.target.value);
@@ -41,6 +30,19 @@ export const EditProfileForm:React.FC = () => {
         }
     }
 
+    const handleEditProfile = (event:React.MouseEvent<HTMLButtonElement>) => {
+        console.log(userState.user?.userId);
+        let updatedUserInfo = {
+            userId: userState.user?.userId!,
+            email,
+            password,
+            firstName,
+            lastName
+        };
+        console.log(updatedUserInfo);
+        dispatch(editProfile(updatedUserInfo));
+    }
+
     return(
         <div className="edit-profile">
             <div className="header-container">
@@ -49,15 +51,15 @@ export const EditProfileForm:React.FC = () => {
             <form className="edit-rofile-form">
                 <div className="first-name-container">
                     <h4 className="input-field-label">Please Enter First Name</h4>
-                    <input className="registration-input" type="text" name="firstName" placeholder="First name" onChange={handleInput}/>
+                    <input className="registration-input" type="text" name="firstName" placeholder={userState.user?.firstName} onChange={handleInput}/>
                 </div>
                 <div className="last-name-container">
                     <h4 className="input-field-label">Please Enter Last Name</h4>
-                    <input className="registration-input" type="text" name="lastName" placeholder="Last name" onChange={handleInput}/>
+                    <input className="registration-input" type="text" name="lastName" placeholder={userState.user?.lastName} onChange={handleInput}/>
                 </div>
                 <div className="email-container">
                     <h4 className="input-field-label">Please Enter Email</h4>
-                    <input className="registration-input" type="text" placeholder="abc@gmail.com" name="email" onChange={handleInput}/>
+                    <input className="registration-input" type="text" placeholder={userState.user?.email} name="email" onChange={handleInput}/>
                 </div>
                 <div className="password-container">
                     <h4 className="input-field-label">Please Enter Password</h4>
@@ -65,8 +67,8 @@ export const EditProfileForm:React.FC = () => {
                 </div>
                 
             </form>
-            <div className='Register-buttons'>
-                <button className="login-button" onClick={handleEditProfile}>Register</button>
+            <div className='Update-Profile-buttons'>
+                <button className="login-button" onClick={handleEditProfile}>Update Profile</button>
                 <Link to={"/login"} className="nav-login">
                     <button className='login-button'>Back To Login</button>
                 </Link>

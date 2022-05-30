@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { EditProfileForm } from "../../Components/EditProfileForm/EditProfileForm";
 import { useSelector } from "react-redux";
@@ -15,7 +15,10 @@ export const EditProfilePage:React.FC = () => {
         if(!userState.isLoggedIn){
             navigator('/login');
         }
-    }, [userState.isLoggedIn])
+        else if(userState.isUpdated){
+            navigator('/profile');
+        }
+    }, [userState.isLoggedIn, userState.isUpdated])
 
     return (
         <div>

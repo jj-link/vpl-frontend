@@ -19,9 +19,10 @@ export const RegistrationPage: React.FC = () => {
 
   useEffect(() => {
     if(userState.isRegistered != true){
-      console.log("we didnt input proper information");
+      console.log("if were not registered yet we dont go anywhere");
     }
     else{
+      console.log("user has regesitered and sent to loginpage")
       navigator('/login');
     }
     console.log("hello robert");
