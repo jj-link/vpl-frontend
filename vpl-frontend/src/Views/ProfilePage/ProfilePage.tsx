@@ -20,7 +20,7 @@ export const ProfilePage:React.FC = () => {
             navigator('/login');
         }
     }, [userState.isLoggedIn])
-
+    console.log(userState.user);
     return (
         <div>
             <Navbar />

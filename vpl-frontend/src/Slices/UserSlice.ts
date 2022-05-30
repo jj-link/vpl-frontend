@@ -3,6 +3,8 @@ import { IUser } from '../Interfaces/IUser';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
+
 interface UserSliceState {
     loading: boolean;
     error: boolean;
@@ -10,6 +12,7 @@ interface UserSliceState {
     users?: IUser[];
     isRegistered?: boolean
     isLoggedIn?: boolean
+    isUpdated?: boolean
    
     currentProfile?: IUser;
 }
@@ -19,7 +22,8 @@ const initialUserState: UserSliceState = {
     loading: false,
     error: false,
     isRegistered: false,
-    isLoggedIn: false
+    isLoggedIn: false,
+    isUpdated: false
     // user is nothing becuase we do not have user yet
 };
 
@@ -105,28 +109,26 @@ type EditUser = {
     email: string,
     password: string
 }
-
+let updated_userInfo:any;
 export const editProfile = createAsyncThunk(
     "user/edit",
-    async (userInfo:EditUser, thunkAPI) => {
+    async (updatedUserInfo: EditUser, thunkAPI) => {
         try {
-            axios.defaults.withCredentials = true;
-            const res = await axios.post("http://localhost:8000/user/edit", userInfo);
-            
-            console.log(res.data);
+            //axios.defaults.withCredentials = true;
 
-            return {
-                userId: res.data.userId,
-                firstName: res.data.firstName,
-                lastName: res.data.lastName,
-                email: res.data.email,
-                password: res.data.password
-            }
-            
-        } catch(e) {
-            console.log(e);
+            await axios.post('http://localhost:8000/user/edit', updatedUserInfo)
+            .then(res => {
+                if(res){
+                    console.log(res.data);
+                    updated_userInfo = res.data;
+                    return res.data;
+                }
+            });
         }
-
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('https request to update user info failed');
+        }
     }
 )
 
@@ -186,10 +188,11 @@ export const UserSlice = createSlice({
             state.loading = true;            
         });
         builder.addCase(editProfile.fulfilled, (state, action) => {
-            state.user = action.payload;
+            state.user = updated_userInfo;
             state.isLoggedIn = true;
             state.loading = false;
             state.error = false;
+            state.isUpdated = true;
         });
         builder.addCase(editProfile.rejected, (state) => {
             state.loading = false;
