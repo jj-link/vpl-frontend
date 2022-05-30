@@ -17,8 +17,6 @@ export const RegistrationPage: React.FC = () => {
 
   const navigator = useNavigate();
 
-
-
   useEffect(() => {
     if(userState.isRegistered != true){
       console.log("we didnt input proper information");
@@ -29,11 +27,6 @@ export const RegistrationPage: React.FC = () => {
     console.log("hello robert");
   }, [userState.isRegistered]);
 
-  /*
-    useEffect(() => {
-
-    }, [])
-*/
   return (
 
     <div className="registrationPage">

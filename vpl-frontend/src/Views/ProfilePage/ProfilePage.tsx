@@ -2,7 +2,7 @@ import React from "react";
 import { IUser } from "../../Interfaces/IUser";
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Navbar } from '../../Components/Navbar/Navbar';
 import { RootState } from "../../Store";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
@@ -21,7 +21,6 @@ export const ProfilePage:React.FC = () => {
         }
     }, [userState.isLoggedIn])
 
-
     return (
         <div>
             <Navbar />
@@ -35,6 +34,9 @@ export const ProfilePage:React.FC = () => {
                     <p>Email: {userState.user?.email}</p>
                     <p>Password: ****** </p>
                 </div>
+                <Link to={"/edit/"} className="edit-info-link">
+                    <button className="edit-info-btn">Edit Information</button>
+                </Link>
             </div>
 
         </div>

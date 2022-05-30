@@ -6,6 +6,8 @@ import { HomePage } from './Views/HomePage/HomePage';
 import { ProfilePage } from './Views/ProfilePage/ProfilePage';
 
 import { RegistrationPage } from './Views/RegistrationPage/RegistrationPage';
+import { EditProfileForm } from './Components/EditProfileForm/EditProfileForm';
+import { EditProfilePage } from './Views/EditProfilePage/EditProfilePage';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/edit/" element={<EditProfilePage />} />
       </Routes>
     </HashRouter>
   );
