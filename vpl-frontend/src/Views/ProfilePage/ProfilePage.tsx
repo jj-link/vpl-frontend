@@ -10,7 +10,6 @@ import { userInfo } from "os";
 import { useNavigate } from "react-router-dom";
 
 export const ProfilePage:React.FC = () => {
-
     const userState = useSelector((state:RootState) => state.user);
 
     const navigator = useNavigate();
@@ -19,7 +18,7 @@ export const ProfilePage:React.FC = () => {
         if(!userState.isLoggedIn){
             navigator('/login');
         }
-    }, [userState.isLoggedIn])
+    }, [userState.user])
     console.log(userState.user);
     return (
         <div>
