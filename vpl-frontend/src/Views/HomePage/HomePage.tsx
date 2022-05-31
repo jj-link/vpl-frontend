@@ -10,7 +10,7 @@ export const HomePage: React.FC = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-        if (!userInfo.user) {
+        if (!userInfo.isLoggedIn) {
           console.log("this ran and went back to login");
           navigator('/login');
         }
@@ -18,7 +18,7 @@ export const HomePage: React.FC = () => {
           //console.log(userInfo);
         }
         // dispatch(getAllResolved());
-      }, [userInfo]);
+      }, [userInfo.isLoggedIn]);
 
     return(
         <div className="home-page">
