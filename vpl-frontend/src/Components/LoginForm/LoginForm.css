@@ -1,0 +1,60 @@
+:root {
+    --bg: #A1B5D8;
+    --nav-bar: #2A2F3C;
+    --nav-text: #0B6C54;
+    --btn-blue: #46B1C9;
+    --accent: #23CE6B;
+    --text-white: #FBFBFB;
+  }
+.login{
+    
+}
+
+.header-container{
+    text-align: center;
+}
+
+.login-header{
+    margin-right: 80px;
+    
+}
+
+.login-form{
+    padding: 20px 20px 30px;
+    background-color: blueviolet;
+    display: inline-block;
+}
+
+.input-container{
+    text-align: center;
+    background-color: chartreuse;
+    padding: 10px 25px 10px;
+}
+
+.input-field-label{
+    background-color: brown;
+}
+
+.login-input{
+    background-color: cornflowerblue;
+    font-size: 1.4em;
+}
+
+.buttons{
+    background-color: #202324;
+    text-align: center;
+    display: inline-block;
+    
+    
+}
+.login-button{
+    background-color:cyan;
+}
+
+.nav-register{
+    background-color: darkred;
+}
+
+.register-button{
+    background-color: green;
+}
