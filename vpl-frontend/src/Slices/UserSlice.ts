@@ -10,9 +10,8 @@ interface UserSliceState {
     error: boolean;
     user?: IUser;
     users?: IUser[];
-    isRegistered?: boolean
-    isLoggedIn?: boolean
-    isUpdated?: boolean
+    isRegistered?: boolean,
+    isLoggedIn?: boolean,
    
     currentProfile?: IUser;
 }
@@ -22,8 +21,7 @@ const initialUserState: UserSliceState = {
     loading: false,
     error: false,
     isRegistered: false,
-    isLoggedIn: false,
-    isUpdated: false
+    isLoggedIn: false
     // user is nothing becuase we do not have user yet
 };
 
@@ -45,21 +43,21 @@ export const loginUser = createAsyncThunk(
             //axios.defaults.withCredentials = true;
             const res = await axios.post('http://localhost:8000/user/login', credentials);
             userData = res.data;
-            //console.log(userData);
+            console.log(userData);
             return {
-                userId: res.data.user_id,
+                userId: res.data.userId,
                 email: res.data.email,
                 password: res.data.password,
-                firstName: res.data.first_name,
-                lastName: res.data.last_name,
-                roleId: res.data.role_id
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                userRole: res.data.userRole
             }
         }
         catch (e) {
             return thunkAPI.rejectWithValue('something went wrong');
         }
     }
-)
+);
 
 type register = {
     email: string;
@@ -89,6 +87,24 @@ export const registerUser = createAsyncThunk(
     }
 )
 
+export const getAllUsers = createAsyncThunk(
+    'user/getAllUsers',
+    async (thunkAPI) => {
+      // user = useSelector((state: RootState) => state.user);
+      // console.log('coming from getAllUsers async api call line 37 ', user);
+  
+      try {
+        //axios.defaults.withCredentials = true;
+        const res = await axios.get('http://localhost:8000/user/all');
+  
+        return res.data;
+
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  );
+
 
 export const logout = createAsyncThunk(
     "user/logout",
@@ -103,29 +119,29 @@ export const logout = createAsyncThunk(
 )
 
 type EditUser = {
-    userId: number,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
+    userId?: number,
+    firstName?: string,
+    lastName?: string,
+    email?: string,
+    password?: string
 }
 let updated_userInfo:any;
 export const editProfile = createAsyncThunk(
     "user/edit",
-    async (updatedUserInfo: EditUser, thunkAPI) => {
+    async (credentials: EditUser, thunkAPI) => {
         try {
             //axios.defaults.withCredentials = true;
+            const res = await axios.post('http://localhost:8000/user/edit', credentials);
 
-            await axios.post('http://localhost:8000/user/edit', updatedUserInfo)
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    updated_userInfo = res.data;
-                    return res.data;
-                }
-            });
-        }
-        catch (e) {
+            return{
+                userId: res.data.userId,
+                email: res.data.email,
+                password: res.data.password,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName
+            };
+
+         } catch (e) {
             console.log(e);
             return thunkAPI.rejectWithValue('https request to update user info failed');
         }
@@ -152,7 +168,7 @@ export const UserSlice = createSlice({
         });
         builder.addCase(loginUser.fulfilled, (state, action) => {
           // payload is the return from our asyn api call
-            state.user = userData;
+            state.user = action.payload;
             state.error = false;
             state.loading = false;
             state.isLoggedIn = true;
@@ -188,11 +204,10 @@ export const UserSlice = createSlice({
             state.loading = true;            
         });
         builder.addCase(editProfile.fulfilled, (state, action) => {
-            state.user = updated_userInfo;
+            state.user = action.payload;
             state.isLoggedIn = true;
             state.loading = false;
             state.error = false;
-            state.isUpdated = true;
         });
         builder.addCase(editProfile.rejected, (state) => {
             state.loading = false;

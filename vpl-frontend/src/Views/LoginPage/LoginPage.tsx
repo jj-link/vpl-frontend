@@ -18,12 +18,18 @@ export const LoginPage: React.FC = () => {
 
   useEffect(() => {
     if (userState.isLoggedIn != false) {
-      navigator('/home');
+      console.log(userState.user?.userRole);
+      if(userState.user?.userRole == 2){
+        navigator('/ownerhome')
+      }
+      else{
+      navigator('/userhome');
+      }
     }
     else{
       console.log("credentials failed");
     }
-  }, [userState.isLoggedIn]);
+  }, [userState.isLoggedIn, userState.user?.userRole]);
 
 
   return (

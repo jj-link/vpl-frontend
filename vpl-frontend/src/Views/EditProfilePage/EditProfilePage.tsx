@@ -15,10 +15,7 @@ export const EditProfilePage:React.FC = () => {
         if(!userState.isLoggedIn){
             navigator('/login');
         }
-        else if(userState.isUpdated){
-            navigator('/profile');
-        }
-    }, [userState.isLoggedIn, userState.isUpdated])
+    }, [userState.isLoggedIn])
 
     return (
         <div>
