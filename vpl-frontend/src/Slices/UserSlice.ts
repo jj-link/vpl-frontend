@@ -50,7 +50,7 @@ export const loginUser = createAsyncThunk(
                 password: res.data.password,
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
-                roleId: res.data.userRole
+                userRole: res.data.userRole
             }
         }
         catch (e) {
@@ -86,6 +86,24 @@ export const registerUser = createAsyncThunk(
         }
     }
 )
+
+export const getAllUsers = createAsyncThunk(
+    'user/getAllUsers',
+    async (thunkAPI) => {
+      // user = useSelector((state: RootState) => state.user);
+      // console.log('coming from getAllUsers async api call line 37 ', user);
+  
+      try {
+        //axios.defaults.withCredentials = true;
+        const res = await axios.get('http://localhost:8000/user/all');
+  
+        return res.data;
+
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  );
 
 
 export const logout = createAsyncThunk(
