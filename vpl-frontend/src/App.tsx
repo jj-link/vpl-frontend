@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LoginPage } from './Views/LoginPage/LoginPage';
-import { HomePage } from './Views/HomePage/HomePage';
+import { UserHomePage } from './Views/HomePage/UserHomePage';
+import { OwnerHomePage } from './Views/HomePage/OwnerHomePage';
 import { ProfilePage } from './Views/ProfilePage/ProfilePage';
 
 import { RegistrationPage } from './Views/RegistrationPage/RegistrationPage';
@@ -16,7 +17,8 @@ function App() {
       <Route path="*" element={<Navigate to="/login" replace />} />
         <Route path='/register' element={<RegistrationPage/>}/>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/userhome" element={<UserHomePage />} />
+        <Route path="/ownerhome" element={<OwnerHomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/edit/" element={<EditProfilePage />} />
       </Routes>
