@@ -24,7 +24,7 @@ export const LoginForm: React.FC = () => {
     return(
         <div className="login">
             <div className="header-container">
-                <h1 className="login-header">Login Form</h1>
+                <h1 className="login-header">Welcome to Virtual Library</h1>
             </div>
             <form className="login-form">
                 <div className="input-container">
