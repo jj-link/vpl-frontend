@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { editProfile } from "../../Slices/UserSlice";
 import { AppDispatch, RootState } from "../../Store";
-
+import './EditProfileForm.css';
 export const EditProfileForm:React.FC = () => {
 
     const userInfo = useSelector((state:RootState) => state.user.user);
@@ -52,7 +52,7 @@ export const EditProfileForm:React.FC = () => {
             <div className="header-container">
                 <h1 className="edit-profile-header">Edit Profile</h1>
             </div>
-            <form className="edit-rofile-form">
+            <form className="edit-profile-form">
                 <div className="first-name-container">
                     <h4 className="input-field-label">Please Enter First Name</h4>
                     <input className="registration-input" type="text" name="firstName" placeholder={userInfo?.firstName} value={firstName} onChange={handleInput}/>

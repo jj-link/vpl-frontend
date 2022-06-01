@@ -1,0 +1,69 @@
+:root {
+    --bg: #A1B5D8;
+    --title: #432361;
+    --container: #343461;
+    --label: #816897;
+    --input-back:#d1a2f7;
+    --nav-bar: #2A2F3C;
+    --nav-link-btn: #5f42b1;
+}
+.registration{
+    margin-left: 50px;
+}
+
+.register-header{
+    color: var(--title);
+    display: inline;
+    font-size: 4.5em;
+    font-weight: bolder;
+}
+
+.register-form{
+    margin-top: -30px;
+    background-color: var(--container);
+}
+
+.first-name-container{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.last-name-container{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.email-container{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.password-container{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.input-field-label{
+    font-size: 3.2em;
+}
+
+.registration-input{
+    border-radius: 10px;
+    font-size: 3.2em;
+    background-color: var(--input-back);
+}
+.registration-input1{
+    border-radius: 10px;
+    font-size: 3.2em;
+    margin-bottom: 50px;
+    background-color: var(--input-back);
+}
+
+.login-button{
+    font-size: 2.1em;
+    font-weight: bolder;
+}
+
+.register-button{
+    font-size: 2.1em;
+    font-weight: bolder;
+}
