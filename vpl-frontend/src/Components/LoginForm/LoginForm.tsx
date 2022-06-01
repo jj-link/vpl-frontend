@@ -30,8 +30,7 @@ export const LoginForm: React.FC = () => {
                 <div className="input-container">
                     <h4 className="input-field-label">Please Enter Email</h4>
                     <input className="login-input" type="text" placeholder="abc@gmail.com" name="email" onChange={handleInput}/>
-                </div>
-                <div className="input-container">
+                
                     <h4 className="input-field-label">Please Enter Password</h4>
                     <input className="login-input" type="password" name="password" placeholder="password" onChange={handleInput}/>
                 </div>

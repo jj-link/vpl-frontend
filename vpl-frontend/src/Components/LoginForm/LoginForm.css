@@ -1,11 +1,12 @@
 :root {
     --bg: #A1B5D8;
+    --title: #432361;
+    --container: #343461;
+    --label: #816897;
+    --input-back:#d1a2f7;
     --nav-bar: #2A2F3C;
-    --nav-text: #0B6C54;
-    --btn-blue: #46B1C9;
-    --accent: #23CE6B;
-    --text-white: #FBFBFB;
-  }
+    --nav-link-btn: #5f42b1;
+}
 .login{
     margin-top: -1px;
     display: flex;
@@ -19,7 +20,8 @@
 
 .login-header{
     font-size: 250%;
-    color: #040405;
+    color: var(--title);
+    font-weight: bolder;
 }
 
 .login-form{
@@ -27,17 +29,19 @@
 }
 
 .input-container{
-    background-color: rgba(98, 98, 99, 0.459);
+    background-color: var(--container);
     padding: .02px 25px 10px;
+    border-style: solid;
+    border-color:solid #040405;
 }
 
 .input-field-label{
     font-size: 1.7em;
-    color: #312f38;
+    color: var(--label);
 }
 
 .login-input{
-    background-color: rgb(255, 255, 255);
+    background-color: var(--input-back);
     font-size: 1.7em;
     border-radius: 10px;
 }
@@ -48,9 +52,11 @@
 .login-button{
     font-size: 1.7em;
     border-radius: 10px;
+    background-color: var(--nav-link-btn);
 }
 
 .register-button{
     font-size: 1.7em;
     border-radius: 10px;
+    background-color: var(--nav-link-btn);
 }
