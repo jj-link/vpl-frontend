@@ -12,7 +12,7 @@ export const AddBookForm: React.FC = () => {
     const [author, setAuthor] = useState<string>("");
     const [genreId, setGenreId] = useState<number>(0);
     const [summary, setSummary] = useState<string>(""); 
-    const [checkedOutCount] = useState<number>(0);
+    //const [checkedOutCount] = useState<number>(0);
     const [isbn, setIsbn] = useState<number>(0);
     const [yearPublished, setYearPublished] = useState<number>(0);
     
@@ -42,7 +42,7 @@ export const AddBookForm: React.FC = () => {
     }
 
     const handleAddBook = (event:React.MouseEvent<HTMLButtonElement>) => {
-        let credentials = {title, author, genreId, summary, checkedOutCount, isbn, yearPublished};
+        let credentials = {title, author, genreId, summary, isbn, yearPublished};
         dispatch(addBook(credentials));
     }
     

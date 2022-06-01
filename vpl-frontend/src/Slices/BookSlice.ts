@@ -20,7 +20,7 @@ type addBook = {
     author: string;
     genreId: number;
     summary: string;
-    checkedOutCount: number;
+    //checkedOutCount: number;
     isbn: number;
     yearPublished: number
 }
@@ -31,7 +31,8 @@ export const addBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            await axios.post('http://localhost:8000/book/addbook', credentials)
+            console.log(credentials);
+            await axios.post('http://localhost:8000/book/create', credentials)
             .then(res => {
                 if(res){
                     console.log(res.data);
