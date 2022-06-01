@@ -7,54 +7,50 @@
     --text-white: #FBFBFB;
   }
 .login{
+    margin-top: -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
     
-}
-
-.header-container{
-    text-align: center;
 }
 
 .login-header{
-    margin-right: 80px;
-    
+    font-size: 250%;
+    color: #040405;
 }
 
 .login-form{
-    padding: 20px 20px 30px;
-    background-color: blueviolet;
     display: inline-block;
 }
 
 .input-container{
-    text-align: center;
-    background-color: chartreuse;
-    padding: 10px 25px 10px;
+    background-color: rgba(98, 98, 99, 0.459);
+    padding: .02px 25px 10px;
 }
 
 .input-field-label{
-    background-color: brown;
+    font-size: 1.7em;
+    color: #312f38;
 }
 
 .login-input{
-    background-color: cornflowerblue;
-    font-size: 1.4em;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.7em;
+    border-radius: 10px;
 }
 
 .buttons{
-    background-color: #202324;
-    text-align: center;
     display: inline-block;
-    
-    
 }
 .login-button{
-    background-color:cyan;
-}
-
-.nav-register{
-    background-color: darkred;
+    font-size: 1.7em;
+    border-radius: 10px;
 }
 
 .register-button{
-    background-color: green;
+    font-size: 1.7em;
+    border-radius: 10px;
 }
