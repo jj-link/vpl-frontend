@@ -46,3 +46,25 @@ export const addBook = createAsyncThunk(
         }
     }
 )
+
+
+
+export const deleteBook = createAsyncThunk(
+    'book/deletebook',
+    async (isbn: number, thunkAPI) => {
+        
+        try {
+            await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
+            .then(res => {
+                if(res){
+                    console.log(res.data);
+                    return res.data;
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+)
