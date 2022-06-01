@@ -9,6 +9,7 @@ export const OwnerHomePage: React.FC = () => {
     const ownerInfo = useSelector((state: RootState) => state.user);
     const navigator = useNavigate();
 
+    {/*
     useEffect(() => {
         if (!ownerInfo.isLoggedIn) {
           console.log("this ran and went back to login");
@@ -19,6 +20,8 @@ export const OwnerHomePage: React.FC = () => {
         }
         // dispatch(getAllResolved());
       }, [ownerInfo.isLoggedIn]);
+
+    */}
 
     return(
         <div className="owner-home-page">

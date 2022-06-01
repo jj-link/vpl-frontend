@@ -29,6 +29,7 @@ export const UserHomePage: React.FC = () => {
                 <button className='recent-button' >Recently Added</button>
                 <button className='mybooks-button' >View My Books</button>
                 <select className="select-genre" >
+                        <option value="none" selected disabled hidden>Genre</option>
                         <option value="1">Fantasy</option>
                         <option value="2">History</option>
                         <option value="3">Romance</option>
