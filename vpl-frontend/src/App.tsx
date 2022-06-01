@@ -10,6 +10,8 @@ import { RegistrationPage } from './Views/RegistrationPage/RegistrationPage';
 import { EditProfileForm } from './Components/EditProfileForm/EditProfileForm';
 import { EditProfilePage } from './Views/EditProfilePage/EditProfilePage';
 import { AddBookPage } from './Views/AddBookPage/AddBookPage';
+import { AllUsersPage } from './Views/AllUsersPage/AllUsersPage';
+import { DeleteBookForm } from './Components/DeleteBookForm/DeleteBookForm';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
 
         <Route path="/ownerhome" element={<OwnerHomePage />} />
         <Route path="/addbook" element={<AddBookPage />} />
+        <Route path="/allusers" element={<AllUsersPage />} />
+        <Route path="/deletebook" element={<DeleteBookForm />} />
       </Routes>
     </HashRouter>
   );

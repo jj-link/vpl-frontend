@@ -90,12 +90,11 @@ export const registerUser = createAsyncThunk(
 export const getAllUsers = createAsyncThunk(
     'user/getAllUsers',
     async (thunkAPI) => {
-      // user = useSelector((state: RootState) => state.user);
-      // console.log('coming from getAllUsers async api call line 37 ', user);
   
       try {
         //axios.defaults.withCredentials = true;
-        const res = await axios.get('http://localhost:8000/user/all');
+        const res = await axios.get('http://localhost:8000/user/all-users');
+        console.log(res.data);
   
         return res.data;
 
@@ -213,6 +212,21 @@ export const UserSlice = createSlice({
             state.loading = false;
             state.error = true;
         })
+
+        // get all users
+        builder.addCase(getAllUsers.pending, (state, action) => {
+            state.loading = true;
+          });
+          builder.addCase(getAllUsers.fulfilled, (state, action) => {
+            // payload is the return from our asyn api call
+            state.users = action.payload;
+            state.error = false;
+            state.loading = false;
+          });
+          builder.addCase(getAllUsers.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+          });
     }
 })
 
