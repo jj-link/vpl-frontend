@@ -1,0 +1,101 @@
+:root {
+    --bg: #A1B5D8;
+    --title: #432361;
+    --container: #343461;
+    --label: #816897;
+    --input-back:#d1a2f7;
+    --nav-bar: #2A2F3C;
+    --nav-link-btn: #5f42b1;
+}
+.menu-bar{
+    display: flex;
+    flex-direction: column;
+    align-items:left;
+    margin-bottom: 120px;
+    margin-top: 3px;
+}
+.popular-button{
+    background-color: var(--nav-link-btn);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+
+.recent-button{
+    background-color: var(--nav-link-btn);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.mybooks-button{
+    background-color: var(--nav-link-btn);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.select-genre{
+    background-color: var(--nav-link-btn);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.21em;
+    margin-left: 10px;
+}
+
+
+.home-body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.row1{
+    background-color: var(--container);
+    border: 5px;
+    border-style:solid;
+    padding: .5px .5px .5px .5px; 
+    margin: 15px;
+    height: 400px;
+}
+.row2{
+    background-color: var(--container);
+    border: 5px;
+    border-style:solid;
+    padding: .5px .5px .5px .5px; 
+    margin: 15px;
+    height: 400px;
+}
+.row3{
+    background-color: var(--container);
+    border: 5px;
+    border-style:solid;
+    padding: .5px .5px .5px .5px; 
+    margin: 15px;
+    height: 400px;
+}
+.preview-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.preview-header{
+    color: var(--title);
+    font-size: 2.2em;
+    margin-bottom: -15px;
+    margin-top: -2px;
+}
+
+p{
+    color:var(--label);
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    height: 345px;
+    background-color: var(--nav-bar);
+}

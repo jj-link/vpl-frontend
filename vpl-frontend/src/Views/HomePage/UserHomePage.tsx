@@ -1,9 +1,11 @@
 import React from "react";
+import './UserHomePage.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../Store';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
+
 
 export const UserHomePage: React.FC = () => {
     const userInfo = useSelector((state: RootState) => state.user);
