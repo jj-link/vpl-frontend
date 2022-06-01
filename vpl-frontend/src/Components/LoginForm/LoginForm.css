@@ -32,17 +32,16 @@
     background-color: var(--container);
     padding: .02px 25px 10px;
     border-style: solid;
-    border-color:solid #040405;
 }
 
 .input-field-label{
-    font-size: 1.7em;
     color: var(--label);
+    font-size: 3.2em;
 }
 
 .login-input{
     background-color: var(--input-back);
-    font-size: 1.7em;
+    font-size: 3.2em;
     border-radius: 10px;
 }
 
