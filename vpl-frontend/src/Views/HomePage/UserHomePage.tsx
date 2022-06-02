@@ -46,7 +46,7 @@ export const UserHomePage: React.FC = () => {
                 <div className="preview-container">
                   <h3 className="preview-header"> Most Popular </h3>
                   <div className="preview-list">
-                    <p>Popular books will go here</p>
+                    <p className="b-row1">Popular books will go here</p>
                   </div>      
                 </div>
               </div>
@@ -54,7 +54,7 @@ export const UserHomePage: React.FC = () => {
                 <div className="preview-container">
                   <h3 className="preview-header"> Recently Added</h3>
                   <div className="preview-list">
-                    <p>Recently Added books will go here</p>
+                    <p className="b-row2">Recently Added books will go here</p>
                   </div>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export const UserHomePage: React.FC = () => {
                 <div className="preview-container">
                   <h3 className="preview-header"> My Books</h3>
                   <div className="preview-list">
-                    <p>Checked out books will go here</p>
+                    <p className="b-row3">Checked out books will go here</p>
                   </div>
                 </div>
               </div>

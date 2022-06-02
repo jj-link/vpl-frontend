@@ -1,0 +1,64 @@
+:root {
+    --bg: #A1B5D8;
+    --title: #362085;
+    --miniTitle: #5c42a3;
+    --container: #343461;
+    --label: #816897;
+    --input-back:#d1a2f7;
+    --nav-bar: #2A2F3C;
+    --nav-link-btn: #5f42b1;
+}
+.profile-page-main{
+    height:fit-content;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.profile-container{
+    margin-left: 20px;
+}
+
+h1{
+    font-size: 4em;
+    color: var(--title);
+}
+
+.profile-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-firstName{
+    display: inline;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--miniTitle);
+}
+
+.profile-lastName{
+    display: inline;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--miniTitle);
+}
+
+.profile-email{
+    display: inline;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--miniTitle);
+}
+
+.profile-password{
+    display: inline;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--miniTitle);
+}
+
+.edit-info-btn{
+    font-size: 2.2em;
+    background-color: var(--nav-link-btn);
+}

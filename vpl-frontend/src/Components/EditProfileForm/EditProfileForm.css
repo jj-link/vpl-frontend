@@ -7,3 +7,24 @@
     --nav-bar: #2A2F3C;
     --nav-link-btn: #5f42b1;
 }
+.edit-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-profile-header{
+    font-size: 4.2em;
+    margin-right: 290px;
+}
+.edit-button{
+    font-size: 1.7em;
+    border-radius: 10px;
+    background-color: var(--nav-link-btn);
+}
+.edit-login-button{
+    font-size: 1.7em;
+    border-radius: 10px;
+    background-color: var(--nav-link-btn);
+    margin-right: 260px;
+}

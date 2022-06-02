@@ -90,8 +90,24 @@
     margin-bottom: -15px;
     margin-top: -2px;
 }
+.b-row1{
+    color:var(--label);
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    height: 345px;
+    background-color: var(--nav-bar);
+}
+.b-row2{
+    color:var(--label);
+    font-size: 1.5em;
+    font-weight: bold;
+    width: 100%;
+    height: 345px;
+    background-color: var(--nav-bar);
+}
 
-p{
+.b-row3{
     color:var(--label);
     font-size: 1.5em;
     font-weight: bold;
