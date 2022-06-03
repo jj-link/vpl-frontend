@@ -7,11 +7,15 @@ import { OwnerHomePage } from './Views/HomePage/OwnerHomePage';
 import { ProfilePage } from './Views/ProfilePage/ProfilePage';
 
 import { RegistrationPage } from './Views/RegistrationPage/RegistrationPage';
-import { EditProfileForm } from './Components/EditProfileForm/EditProfileForm';
 import { EditProfilePage } from './Views/EditProfilePage/EditProfilePage';
 import { AddBookPage } from './Views/AddBookPage/AddBookPage';
 import { AllUsersPage } from './Views/AllUsersPage/AllUsersPage';
 import { DeleteBookForm } from './Components/DeleteBookForm/DeleteBookForm';
+import { BookList } from './Components/BookList/BookList';
+import { PopularBooksPage } from './Views/PopularBooksPage/PopularBooksPage';
+import { RecentBooksPage } from './Views/RecentBooksPage/RecentBooksPage';
+import { MyBooksPage } from './Views/MyBooksPage/MyBooksPage';
+import { EditBookForm } from './Components/EditBookForm/EditBookForm';
 
 function App() {
   return (
@@ -28,6 +32,12 @@ function App() {
         <Route path="/addbook" element={<AddBookPage />} />
         <Route path="/allusers" element={<AllUsersPage />} />
         <Route path="/deletebook" element={<DeleteBookForm />} />
+        <Route path="/updatebook" element={<EditBookForm />} />
+
+        <Route path="/search" element={<BookList />} />
+        <Route path="/popularbooks" element={<PopularBooksPage/>}></Route>
+        <Route path="/recentbooks" element={<RecentBooksPage/>}></Route>
+        <Route path="/mybooks" element={<MyBooksPage/>}></Route>
       </Routes>
     </HashRouter>
   );
