@@ -33,14 +33,9 @@ export const addBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            console.log(credentials);
-            await axios.post('http://localhost:8000/book/create', credentials)
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            //console.log(credentials);
+            const res = await axios.post('http://localhost:8000/book/create', credentials);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -65,14 +60,10 @@ export const editBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            console.log(credentials);
-            await axios.post('http://localhost:8000/book/update', credentials)
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            //console.log(credentials);
+            const res = await axios.post('http://localhost:8000/book/update', credentials);
+            console.log(res.data);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -123,9 +114,6 @@ export const getRecentBooks = createAsyncThunk(
   }
 );
 
-type mytype = {
-    "userId": number;
-}
 
 export const getMyBooks = createAsyncThunk(
     'book/getmybooks',
@@ -133,7 +121,7 @@ export const getMyBooks = createAsyncThunk(
     try {
         //axios.defaults.withCredentials = true;
         console.log(userId);
-        const res = await axios.get('http://localhost:8000/user/checkout-show', {data: {userId}});
+        const res = await axios.get(`http://localhost:8000/user/checkout-show/${userId}`);
         console.log(res.data);
         return res.data;
       } catch (e) {
@@ -147,13 +135,9 @@ export const deleteBook = createAsyncThunk(
     async (isbn: number, thunkAPI) => {
         
         try {
-            await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            const res = await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
+            console.log(res.data);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -167,13 +151,9 @@ export const getBooksByGenreId = createAsyncThunk(
     async (genreId: number, thunkAPI) => {
         console.log(genreId);
         try {
-            await axios.get('http://localhost:8000/book/get-books-by-genreId', {data:{genreId}})
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            let res = await axios.get(`http://localhost:8000/book/get-books-by-genreId/${genreId}`)
+            console.log(res.data);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -246,12 +226,13 @@ export const BookSlice = createSlice({
             state.error = true;
             state.loading = false;
         });
-        //for gentre list
+        //for genre list
         builder.addCase(getBooksByGenreId.pending, (state, action) => {
             state.loading = true;
         });
         builder.addCase(getBooksByGenreId.fulfilled, (state, action) => {
             state.genrebooklist = action.payload;
+            console.log("hello from redux " + state.genrebooklist);
             state.error = false;
             state.loading = false;
         });

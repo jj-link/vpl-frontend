@@ -24,7 +24,7 @@ export const RecentBooksPage: React.FC<any> = () => {
               <div className='book-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
-                <p>GenreId: {book.bookId}</p>
+                <p>GenreId: {book.genreId}</p>
                 <p>ISBN: {book.isbn}</p>
                 <p>Summay: {book.summary}</p>
               </div>

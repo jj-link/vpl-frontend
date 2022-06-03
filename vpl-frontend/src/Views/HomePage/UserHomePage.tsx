@@ -18,7 +18,7 @@ export const UserHomePage: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const [userId] = useState<number>(userInfo.user?.userId!);
-  const [genreId, setGenreId] = useState(bookInfo?.book?.genreId!);
+  const [genreId, setGenreId] = useState<number>(bookInfo?.book?.genreId!);
 
 
   //let userIdOnly = {"userId": userInfo.user?.userId!};
@@ -35,15 +35,13 @@ export const UserHomePage: React.FC = () => {
       }
     }, [userInfo.isLoggedIn]);
 
+
   const handleGetAllBooks = (event: React.MouseEvent<HTMLButtonElement>) => {
       dispatch(getAllBooks());
   }
 
   const handleGenre = (event:React.ChangeEvent<HTMLSelectElement>) => {
-    if(event?.target.name === "genreId"){
-        setGenreId(parseInt(event.target.value));
-    }
-    dispatch(getBooksByGenreId(genreId));
+    dispatch(getBooksByGenreId(parseInt(event.target.value)));
     navigator("/genrelist");
 }
     
