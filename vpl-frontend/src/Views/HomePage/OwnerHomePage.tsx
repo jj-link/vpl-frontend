@@ -1,4 +1,5 @@
 import React from "react";
+import './OwnerHomePage.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../Store';
 import { Link, useNavigate } from 'react-router-dom';
@@ -36,11 +37,11 @@ export const OwnerHomePage: React.FC = () => {
             <Navbar/>
             <div className="owner-home-body">
                 {/* 1st row */}
-                <div className="row1">
+                <div className="Owner-row1">
                     <div className="action-container">
                         <h3 className="textHeader"> Add a New Book</h3>
                         <Link to="/addbook" style={{ textDecoration: 'none' }}>
-                            <button className="action-button">New Book</button>
+                            <button className="owner-action-button1">New Book</button>
                         </Link>
                     </div>
 
@@ -48,18 +49,18 @@ export const OwnerHomePage: React.FC = () => {
                         <h3 className="textHeader">Delete a Book</h3>
 
                         <Link to="/deletebook" style={{ textDecoration: 'none' }}>
-                            <button className="action-button">Delete Book</button>
+                            <button className="owner-action-button2">Delete Book</button>
                         </Link>
                     </div>
                 </div>
 
       {/* 2nd row */}
-                <div className="row2">
+                <div className="Owner-row2">
                     <div className="action-container">
                         <h3 className="textHeader">Update a Book Listing</h3>
 
                         <Link to="/updatebook" style={{ textDecoration: 'none' }}>
-                        <button className="action-button" >
+                        <button className="owner-action-button3" >
                         Update Book
                         </button>
                         </Link>
@@ -67,7 +68,7 @@ export const OwnerHomePage: React.FC = () => {
                     <div className="action-container">
                         <h3 className="textHeader">View all User Accounts</h3>
                         <Link to="/allusers" style={{ textDecoration: 'none' }}>
-                        <button className="action-button" onClick={handleGetAllUsers}>
+                        <button className="owner-action-button4" onClick={handleGetAllUsers}>
                         View all Users
                         </button>
                         </Link>

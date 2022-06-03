@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store'
+import './BookList.css';
 // import { useNavigate } from 'react-router-dom';
 
 // go inside App for routing
@@ -11,14 +12,14 @@ export const BookList: React.FC<any> = () => {
   // const dispatch: AppDispatch = useDispatch();
 
   return (
-    <div className='booklist'>
-        <div className="page-title">
-            <h3>All book detail list from BookList Component.</h3>
+    <div className='book-list-form'>
+        <div className="book-list-form-header">
+            <h3 className='book-list-form-title'>All book detail list from BookList Component.</h3>
         </div>
         {allbooks?.map((book) => {
           return (
-            <div className = 'book-container'>
-              <div className='book-details'>
+            <div className = 'book-list-form-container'>
+              <div className='book-list-form-details'>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.bookId}</p>
@@ -31,9 +32,9 @@ export const BookList: React.FC<any> = () => {
           );
         })}
 
-        <div className="home-button">
+        <div className="book-list-form-home-button">
           <Link to="/userhome">
-            <button>back</button>
+            <button className='book-list-form-btn'>back</button>
           </Link>
         </div>
     </div>

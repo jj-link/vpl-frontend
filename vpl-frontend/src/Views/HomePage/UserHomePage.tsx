@@ -59,14 +59,14 @@ export const UserHomePage: React.FC = () => {
         </div>
         <div className = "home-body">
           <div className="row1">
-            <div className="preview-container">
-              <Link to="/popularbooks"><h3 className="preview-header">Most Popular</h3></Link>
-              <div className="preview-list">
-                <p>Popular books will go here</p>
+            <div className="row1-preview-container">
+              <Link to="/popularbooks"><h3 className="row1-preview-header">Most Popular</h3></Link>
+              <div className="row1-preview-list">
+                
                 {bookInfo.popularbooks?.map((book) => {
                   return (
-                    <div className = 'book-container'>
-                      <div className='book-details' key={book.bookId}>
+                    <div className = 'row1-book-container'>
+                      <div className='row1-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
                         <p>GenreId: {book.bookId}</p>
@@ -82,14 +82,13 @@ export const UserHomePage: React.FC = () => {
             </div>
           </div>
           <div className="row2">
-            <div className="preview-container">
-              <Link to="/recentbooks"><h3 className="preview-header">Recently Added</h3></Link>
-              <div className="preview-list">
-                <p>Recently Added books will go here</p>
+            <div className="row2-preview-container">
+              <Link to="/recentbooks"><h3 className="row2-preview-header">Recently Added</h3></Link>
+              <div className="row2-preview-list">
                 {bookInfo.recentbooks?.map((book) => {
                   return (
-                    <div className = 'book-container'>
-                      <div className='book-details' key={book.bookId}>
+                    <div className = 'row2-book-container'>
+                      <div className='row2-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
                         <p>GenreId: {book.bookId}</p>
@@ -106,13 +105,12 @@ export const UserHomePage: React.FC = () => {
           </div>
           <div className="row3">
             <div className="preview-container">
-              <Link to="/mybooks"><h3 className="preview-header">My Books</h3></Link>
-              <div className="preview-list">
-                <p>Checked out books will go here</p>
+              <Link to="/mybooks"><h3 className="row3-preview-header">My Books</h3></Link>
+              <div className="row3-preview-list">
                 {bookInfo.mybooks?.map((book) => {
                   return (
-                    <div className = 'book-container'>
-                      <div className='book-details' key={book.bookId}>
+                    <div className = 'row3-book-container'>
+                      <div className='row3-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
                         <p>GenreId: {book.bookId}</p>
