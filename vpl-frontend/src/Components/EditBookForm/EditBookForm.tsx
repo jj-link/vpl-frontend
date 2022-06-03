@@ -22,6 +22,8 @@ export const EditBookForm:React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
     useEffect(() => {}, []);
 
+    //console.log(bookInfo);
+
     const handleInput = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.name === "title"){
             setTitle(event.target.value);
@@ -55,10 +57,9 @@ export const EditBookForm:React.FC = () => {
             genreId: genreId,
             isbn: isbn,
             yearPublished: yearPublished,
-            checkedOutCount: checkedOutCount,
             summary: summary
         };
-        console.log(credentials);
+        console.log("credentials = " + credentials.toString());
         dispatch(editBook(credentials));
         // also can go to the book detail page with updated information
         navigator('/ownerhome');
@@ -91,15 +92,15 @@ export const EditBookForm:React.FC = () => {
                 </div>
                 <div className="summary-container">
                     <h4 className="input-field-label">Summary</h4>
-                    <input className="edit-book-input" type="text" name="summary" onChange={handleInput}/>
+                    <input className="edit-book-input" type="text" name="summary" placeholder={bookInfo.book?.summary} onChange={handleInput}/>
                 </div>
                 <div className="isbn-container">
                     <h4 className="input-field-label">ISBN</h4>
-                    <input className="edit-book-input" type="number" name="isbn" onChange={handleInput}/>
+                    <input className="edit-book-input" type="number" name="isbn" placeholder={bookInfo.book?.isbn.toString()} onChange={handleInput}/>
                 </div>
                 <div className="year-published-container">
                     <h4 className="input-field-label">Year Published</h4>
-                    <input className="edit-book-input" type="number" name="yearPublished" onChange={handleInput}/>
+                    <input className="edit-book-input" type="number" name="yearPublished" placeholder={bookInfo.book?.yearPublished.toString()} onChange={handleInput}/>
                 </div>
                 
             </form>

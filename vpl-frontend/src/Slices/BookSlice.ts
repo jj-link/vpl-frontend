@@ -52,7 +52,6 @@ type editbook = {
     summary: string;
     isbn: number;
     yearPublished: number;
-    checkedOutCount: number;
 }
 export const editBook = createAsyncThunk(
     'book/editbook',
@@ -60,8 +59,8 @@ export const editBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            //console.log(credentials);
-            const res = await axios.post('http://localhost:8000/book/update', credentials);
+            console.log(credentials);
+            const res = await axios.put('http://localhost:8000/book/update', credentials);
             console.log(res.data);
             return res.data;
         }
@@ -162,6 +161,43 @@ export const getBooksByGenreId = createAsyncThunk(
     }
 );
 
+
+export const getBookByIsbn = createAsyncThunk(
+    'book/getbyisbn',
+    async (isbn: number | undefined, thunkAPI) => {
+        console.log(isbn);
+        try {
+            let res = await axios.get(`http://localhost:8000/book/get-books-by-isbn/${isbn}`)
+            console.log(res.data);
+            return res.data;
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+type checkoutCredentials = {
+    userId?: number,
+    isbn: number
+}
+
+export const checkoutBook = createAsyncThunk(
+    'book/checkoutBook',
+    async (credentials: checkoutCredentials, thunkAPI) => {
+    try {
+        //axios.defaults.withCredentials = true;
+        console.log("from checkout book" + credentials);
+        const res = await axios.post('http://localhost:8000/user/checkout-book', credentials);
+        console.log(res.data);
+        return res.data;
+      } catch (e) {
+        console.log(e);
+      }
+    }
+);
+
 export const BookSlice = createSlice({
     name: 'book',
     initialState: initialBookState,
@@ -232,11 +268,56 @@ export const BookSlice = createSlice({
         });
         builder.addCase(getBooksByGenreId.fulfilled, (state, action) => {
             state.genrebooklist = action.payload;
-            console.log("hello from redux " + state.genrebooklist);
+            //console.log("hello from redux " + state.genrebooklist);
             state.error = false;
             state.loading = false;
         });
         builder.addCase(getBooksByGenreId.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        // get book by isbn
+        builder.addCase(getBookByIsbn.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBookByIsbn.fulfilled, (state, action) => {
+            state.book = action.payload;
+            console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(getBookByIsbn.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        //update book
+        builder.addCase(editBook.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(editBook.fulfilled, (state, action) => {
+            state.book = action.payload;
+            console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(editBook.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        //checkout book
+        builder.addCase(checkoutBook.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(checkoutBook.fulfilled, (state, action) => {
+            //state.book = action.payload;
+            //console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(checkoutBook.rejected, (state, action) => {
             state.error = true;
             state.loading = false;
         });

@@ -58,7 +58,7 @@ export const OwnerHomePage: React.FC = () => {
                     <div className="action-container">
                         <h3 className="textHeader">Update a Book Listing</h3>
 
-                        <Link to="/updatebook" style={{ textDecoration: 'none' }}>
+                        <Link to="/search" style={{ textDecoration: 'none' }}>
                         <button className="action-button" >
                         Update Book
                         </button>
