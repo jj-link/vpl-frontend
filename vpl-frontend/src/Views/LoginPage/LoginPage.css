@@ -1,16 +1,26 @@
-.loginPage{
-    height:fit-content;
+:root {
+    --bg: #0f0f0f;
+    --grey: #2d2e2e;
+    --btn-blue: #3891a6;
+    --accent: #23ce6b;
+    --text-white: #fbfbfb;
+  }
+  
+  .loginPage {
+    /* width: fit-content;
+    height: fit-content; */
     width: 100%;
-    margin-top: -20px;
-    display: inline-flex;
+    height: 100%;
+  
+    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-}
-.loginError{
-    background-color: red;
-    display: inline-block;
-    padding: 0em .2rem .2rem .2rem;
-    color: white;
-}
+  }
+  
+  .loginError {
+    color: darkred;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
