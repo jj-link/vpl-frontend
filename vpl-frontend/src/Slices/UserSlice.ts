@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { IUser } from '../Interfaces/IUser';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 
 
@@ -30,8 +29,6 @@ type Login = {
     email: string;
     password: string;
 };
-
-//let res: any;
 
 let userData:any;
 
@@ -124,7 +121,7 @@ type EditUser = {
     email?: string,
     password?: string
 }
-let updated_userInfo:any;
+
 export const editProfile = createAsyncThunk(
     "user/edit",
     async (credentials: EditUser, thunkAPI) => {
