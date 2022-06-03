@@ -1,31 +1,31 @@
 import React from 'react';
-//import './AllUsersPage.css';
+//import './MyBooksPage.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store'
 import { Navbar } from '../../Components/Navbar/Navbar';
 
-// go inside App for routing
-export const AllUsersPage: React.FC<any> = () => {
-  const usersAll = useSelector((state: RootState) => state.user.users);
+export const MyBooksPage: React.FC<any> = () => {
+  const bookInfo = useSelector((state: RootState) => state.book);
   // const navigator = useNavigate();
   // const dispatch: AppDispatch = useDispatch();
 
   return (
-    <div className='all-users'>
+    <div className='my-books'>
         <Navbar />
         <div className="page-title">
-            <h3>All Employees</h3>
+            <h3>My Books</h3>
         </div>
 
-        {usersAll?.map((user) => {
+        {bookInfo.mybooks?.map((book) => {
           return (
-            <div className = 'user-container'>
-              <div className='user-details' key={user.userId}>
-                <p>UserID: {user.userId}</p>
-                <p>First Name: {user.firstName}</p>
-                <p>Last Name: {user.lastName}</p>
-                <p>Email: {user.email}</p>
+            <div className = 'book-container'>
+              <div className='book-details' key={book.bookId}>
+                <p>Title: {book.title}</p>
+                <p>Author: {book.author}</p>
+                <p>GenreId: {book.bookId}</p>
+                <p>ISBN: {book.isbn}</p>
+                <p>Summay: {book.summary}</p>
               </div>
             </div>
           );

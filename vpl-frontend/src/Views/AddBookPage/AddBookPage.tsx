@@ -12,14 +12,14 @@ export const AddBookPage: React.FC = () => {
     const navigator = useNavigate();
 
     useEffect(() => {
-        if (!ownerInfo.isLoggedIn || ownerInfo.user?.userRole != 2) {
+        if (!ownerInfo.isLoggedIn || ownerInfo.user?.userRole !== 2) {
           console.log("this ran and went back to login");
           navigator('/login');
         }
         else{
           //console.log(userInfo);
         }
-      }, [ownerInfo.isLoggedIn, ownerInfo.user?.userRole]);
+      }, [ownerInfo.isLoggedIn, ownerInfo.user?.userRole, navigator]);
 
   return (
     <div className="add-book-page">

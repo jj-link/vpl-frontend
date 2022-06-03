@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { editProfile } from "../../Slices/UserSlice";
 import { AppDispatch, RootState } from "../../Store";
 
