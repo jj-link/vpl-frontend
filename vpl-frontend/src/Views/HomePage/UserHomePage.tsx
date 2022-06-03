@@ -1,3 +1,5 @@
+
+import './UserHomePage.css';
 import React, {useState}from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../Store';
@@ -5,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
 import { getAllBooks, getPopularBooks, getRecentBooks, getMyBooks } from "../../Slices/BookSlice";
+
 
 
 export const UserHomePage: React.FC = () => {

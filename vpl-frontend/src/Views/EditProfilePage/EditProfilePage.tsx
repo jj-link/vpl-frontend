@@ -4,6 +4,7 @@ import { EditProfileForm } from "../../Components/EditProfileForm/EditProfileFor
 import { useSelector } from "react-redux";
 import { RootState } from "../../Store";
 import { useNavigate } from "react-router-dom";
+import './EditProfilePage.css';
 
 export const EditProfilePage:React.FC = () => {
 

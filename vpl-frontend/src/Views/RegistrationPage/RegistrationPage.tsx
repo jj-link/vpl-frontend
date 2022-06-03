@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-//import './RegistrationPage.css';
-
+import './RegistrationPage.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +24,6 @@ export const RegistrationPage: React.FC = () => {
   }, [userState.isRegistered, navigator]);
 
   return (
-
     <div className="registrationPage">
       {userState.error ? (
         <h2 className="registrationError">Email address already taken</h2>

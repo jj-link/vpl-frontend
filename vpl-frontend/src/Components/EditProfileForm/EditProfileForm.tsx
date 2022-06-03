@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate} from "react-router-dom";
 import { editProfile } from "../../Slices/UserSlice";
 import { AppDispatch, RootState } from "../../Store";
-
+import './EditProfileForm.css';
 export const EditProfileForm:React.FC = () => {
 
     const userInfo = useSelector((state:RootState) => state.user.user);
@@ -52,29 +52,29 @@ export const EditProfileForm:React.FC = () => {
             <div className="header-container">
                 <h1 className="edit-profile-header">Edit Profile</h1>
             </div>
-            <form className="edit-rofile-form">
-                <div className="first-name-container">
+            <form className="edit-profile-form">
+                <div className="edit-first-name-container">
                     <h4 className="input-field-label">Please Enter First Name</h4>
                     <input className="registration-input" type="text" name="firstName" placeholder={userInfo?.firstName} value={firstName} onChange={handleInput}/>
                 </div>
-                <div className="last-name-container">
+                <div className="edit-last-name-container">
                     <h4 className="input-field-label">Please Enter Last Name</h4>
                     <input className="registration-input" type="text" name="lastName" placeholder={userInfo?.lastName} value={lastName} onChange={handleInput}/>
                 </div>
-                <div className="email-container">
+                <div className="edit-email-container">
                     <h4 className="input-field-label">Please Enter Email</h4>
                     <input className="registration-input" type="text" placeholder={userInfo?.email} name="email" value={email} onChange={handleInput}/>
                 </div>
-                <div className="password-container">
+                <div className="edit-password-container">
                     <h4 className="input-field-label">Please Enter Password</h4>
                     <input className="registration-input" type="password" name="password" placeholder="password" value={password} onChange={handleInput}/>
                 </div>
                 
             </form>
             <div className='Update-Profile-buttons'>
-                <button className="login-button" onClick={handleEditProfile}>Update Profile</button>
+                <button className="edit-button" onClick={handleEditProfile}>Update Profile</button>
                 <Link to={"/login"} className="nav-login">
-                    <button className='login-button'>Back To Login</button>
+                    <button className='edit-login-button'>Back To Login</button>
                 </Link>
             </div>
     

@@ -1,60 +1,61 @@
 :root {
     --bg: #A1B5D8;
+    --title: #432361;
+    --container: #343461;
+    --label: #816897;
+    --input-back:#d1a2f7;
     --nav-bar: #2A2F3C;
-    --nav-text: #0B6C54;
-    --btn-blue: #46B1C9;
-    --accent: #23CE6B;
-    --text-white: #FBFBFB;
-  }
-.login{
-    
+    --nav-link-btn: #5f42b1;
 }
-
-.header-container{
-    text-align: center;
+.login{
+    margin-top: -1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    
 }
 
 .login-header{
-    margin-right: 80px;
-    
+    font-size: 250%;
+    color: var(--title);
+    font-weight: bolder;
 }
 
 .login-form{
-    padding: 20px 20px 30px;
-    background-color: blueviolet;
     display: inline-block;
 }
 
 .input-container{
-    text-align: center;
-    background-color: chartreuse;
-    padding: 10px 25px 10px;
+    background-color: var(--container);
+    padding: .02px 25px 10px;
+    border-style: solid;
 }
 
 .input-field-label{
-    background-color: brown;
+    color: var(--label);
+    font-size: 3.2em;
 }
 
 .login-input{
-    background-color: cornflowerblue;
-    font-size: 1.4em;
+    background-color: var(--input-back);
+    font-size: 3.2em;
+    border-radius: 10px;
 }
 
 .buttons{
-    background-color: #202324;
-    text-align: center;
     display: inline-block;
-    
-    
 }
 .login-button{
-    background-color:cyan;
-}
-
-.nav-register{
-    background-color: darkred;
+    font-size: 1.7em;
+    border-radius: 10px;
+    background-color: var(--nav-link-btn);
 }
 
 .register-button{
-    background-color: green;
+    font-size: 1.7em;
+    border-radius: 10px;
+    background-color: var(--nav-link-btn);
 }

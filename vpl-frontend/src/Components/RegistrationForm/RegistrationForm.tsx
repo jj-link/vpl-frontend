@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Store';
 import { registerUser, toggleError } from '../../Slices/UserSlice';
 import {Link} from 'react-router-dom';
-//import "./LoginForm.css"
+import './RegistrationForm.css';
 export const RegistrationForm: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
@@ -49,12 +49,12 @@ export const RegistrationForm: React.FC = () => {
                 </div>
                 <div className="password-container">
                     <h4 className="input-field-label">Please Enter Password</h4>
-                    <input className="registration-input" type="password" name="password" placeholder="password" onChange={handleInput}/>
+                    <input className="registration-input1" type="password" name="password" placeholder="password" onChange={handleInput}/>
                 </div>
                 
             </form>
             <div className='Register-buttons'>
-                <button className="login-button" onClick={handleRegister}>Register</button>
+                <button className="register-button" onClick={handleRegister}>Register</button>
                 <Link to={"/login"} className="nav-login">
                     <button className='login-button'>Back To Login</button>
                 </Link>
