@@ -9,7 +9,8 @@ interface BookSliceState {
     books?: IBook[],
     recentbooks?: IBook[],
     popularbooks?: IBook[],
-    mybooks?: IBook[]
+    mybooks?: IBook[],
+    genrebooklist?: IBook[]
 }
 
 const initialBookState: BookSliceState = {
@@ -122,13 +123,17 @@ export const getRecentBooks = createAsyncThunk(
   }
 );
 
+type mytype = {
+    "userId": number;
+}
+
 export const getMyBooks = createAsyncThunk(
     'book/getmybooks',
     async (userId: number, thunkAPI) => {
     try {
         //axios.defaults.withCredentials = true;
         console.log(userId);
-        const res = await axios.get('http://localhost:8000/user/checkout-show', {data:{userId}});
+        const res = await axios.get('http://localhost:8000/user/checkout-show', {data: {userId}});
         console.log(res.data);
         return res.data;
       } catch (e) {
@@ -143,6 +148,26 @@ export const deleteBook = createAsyncThunk(
         
         try {
             await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
+            .then(res => {
+                if(res){
+                    console.log(res.data);
+                    return res.data;
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+export const getBooksByGenreId = createAsyncThunk(
+    'book/genrelist',
+    async (genreId: number, thunkAPI) => {
+        console.log(genreId);
+        try {
+            await axios.get('http://localhost:8000/book/get-books-by-genreId', {data:{genreId}})
             .then(res => {
                 if(res){
                     console.log(res.data);
@@ -218,6 +243,19 @@ export const BookSlice = createSlice({
             state.loading = false;
         });
         builder.addCase(getMyBooks.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+        //for gentre list
+        builder.addCase(getBooksByGenreId.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBooksByGenreId.fulfilled, (state, action) => {
+            state.genrebooklist = action.payload;
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(getBooksByGenreId.rejected, (state, action) => {
             state.error = true;
             state.loading = false;
         });

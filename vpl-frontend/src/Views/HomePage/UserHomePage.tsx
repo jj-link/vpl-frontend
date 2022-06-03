@@ -6,7 +6,7 @@ import { RootState, AppDispatch } from '../../Store';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from "react";
 import { Navbar } from "../../Components/Navbar/Navbar";
-import { getAllBooks, getPopularBooks, getRecentBooks, getMyBooks } from "../../Slices/BookSlice";
+import { getAllBooks, getPopularBooks, getRecentBooks, getMyBooks, getBooksByGenreId } from "../../Slices/BookSlice";
 
 
 
@@ -18,6 +18,10 @@ export const UserHomePage: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const [userId] = useState<number>(userInfo.user?.userId!);
+  const [genreId, setGenreId] = useState(bookInfo?.book?.genreId!);
+
+
+  //let userIdOnly = {"userId": userInfo.user?.userId!};
 
   useEffect(() => {
       if (!userInfo.isLoggedIn) {
@@ -34,6 +38,14 @@ export const UserHomePage: React.FC = () => {
   const handleGetAllBooks = (event: React.MouseEvent<HTMLButtonElement>) => {
       dispatch(getAllBooks());
   }
+
+  const handleGenre = (event:React.ChangeEvent<HTMLSelectElement>) => {
+    if(event?.target.name === "genreId"){
+        setGenreId(parseInt(event.target.value));
+    }
+    dispatch(getBooksByGenreId(genreId));
+    navigator("/genrelist");
+}
     
 
   return(
@@ -44,7 +56,7 @@ export const UserHomePage: React.FC = () => {
             <Link to="/popularbooks"><button className="popular-button">Most Popular</button></Link>
             <Link to="/recentbooks"><button className='recent-button' >Recently Added</button></Link>
             <Link to="/mybooks"><button className='mybooks-button' >View My Books</button></Link>
-            <select className="select-genre" >
+            <select className="select-genre" onChange={handleGenre} >
                     <option selected disabled hidden>Genre</option>
                     <option value="1">Fantasy</option>
                     <option value="2">History</option>
@@ -69,7 +81,7 @@ export const UserHomePage: React.FC = () => {
                       <div className='book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
-                        <p>GenreId: {book.bookId}</p>
+                        <p>GenreId: {book.genreId}</p>
                         <p>ISBN: {book.isbn}</p>
                         <p>Year Published: {book.yearPublished}</p>
                         <p>Checked Out Count: {book.checkedOutCount}</p>

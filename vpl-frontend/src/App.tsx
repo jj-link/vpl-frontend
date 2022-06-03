@@ -16,6 +16,7 @@ import { PopularBooksPage } from './Views/PopularBooksPage/PopularBooksPage';
 import { RecentBooksPage } from './Views/RecentBooksPage/RecentBooksPage';
 import { MyBooksPage } from './Views/MyBooksPage/MyBooksPage';
 import { EditBookForm } from './Components/EditBookForm/EditBookForm';
+import { GenreBookListPage } from './Views/GenreBookListPage/GenreBookListPage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/popularbooks" element={<PopularBooksPage/>}></Route>
         <Route path="/recentbooks" element={<RecentBooksPage/>}></Route>
         <Route path="/mybooks" element={<MyBooksPage/>}></Route>
+        <Route path="/genrelist" element={<GenreBookListPage/>}></Route>
       </Routes>
     </HashRouter>
   );
