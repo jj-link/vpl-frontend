@@ -43,7 +43,25 @@ export const UserHomePage: React.FC = () => {
   const handleGenre = (event:React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(getBooksByGenreId(parseInt(event.target.value)));
     navigator("/genrelist");
-}
+  }
+
+  const idToGenre = (genreId: number) => {
+    let genre = "";
+    if (genreId === 1){
+      genre = "Fantasy";
+    }else if(genreId === 2){
+      genre = "History";
+    }else if(genreId === 3){
+      genre = "Romance";
+    }else if(genreId === 4){
+      genre = "Sci-fi";
+    }else if(genreId === 5){
+      genre = "Comedy";
+    }else{
+      genre = "Genre not found";
+    }
+    return genre;
+  }
     
 
   return(
@@ -79,7 +97,7 @@ export const UserHomePage: React.FC = () => {
                       <div className='row1-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
-                        <p>GenreId: {book.genreId}</p>
+                        <p>Genre: {idToGenre(book.genreId)}</p>
                         <p>ISBN: {book.isbn}</p>
                         <p>Year Published: {book.yearPublished}</p>
                         <p>Checked Out Count: {book.checkedOutCount}</p>
@@ -101,7 +119,7 @@ export const UserHomePage: React.FC = () => {
                       <div className='row2-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
-                        <p>GenreId: {book.bookId}</p>
+                        <p>Genre: {idToGenre(book.genreId)}</p>
                         <p>ISBN: {book.isbn}</p>
                         <p>Year Published: {book.yearPublished}</p>
                         <p>Checked Out Count: {book.checkedOutCount}</p>
@@ -123,7 +141,7 @@ export const UserHomePage: React.FC = () => {
                       <div className='row3-book-details' key={book.bookId}>
                         <p>Title: {book.title}</p>
                         <p>Author: {book.author}</p>
-                        <p>GenreId: {book.bookId}</p>
+                        <p>Genre: {idToGenre(book.genreId)}</p>
                         <p>ISBN: {book.isbn}</p>
                         <p>Year Published: {book.yearPublished}</p>
                         <p>Checked Out Count: {book.checkedOutCount}</p>

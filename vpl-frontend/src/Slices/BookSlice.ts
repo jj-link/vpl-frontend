@@ -46,13 +46,13 @@ export const addBook = createAsyncThunk(
 );
 
 type editbook = {
-    bookId: number,
-    title: string;
-    author: string;
-    genreId: number;
-    summary: string;
-    isbn: number;
-    yearPublished: number;
+    bookId?: number,
+    title?: string;
+    author?: string;
+    genreId?: number;
+    summary?: string;
+    isbn?: number;
+    yearPublished?: number;
 }
 export const editBook = createAsyncThunk(
     'book/editbook',
@@ -60,7 +60,7 @@ export const editBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            //console.log(credentials);
+            console.log(credentials);
             const res = await axios.put('http://localhost:8000/book/update', credentials);
             //console.log(res.data);
             return res.data;
