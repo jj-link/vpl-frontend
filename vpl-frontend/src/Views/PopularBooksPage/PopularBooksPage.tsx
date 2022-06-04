@@ -63,7 +63,7 @@ export const PopularBooksPage: React.FC<any> = () => {
                 <p>checkedOutCount: {book.checkedOutCount}</p>
               </div>
               <div className='checkout-button'>
-                  <button data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
+                  <button className='popular-page-book-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
               </div>
             </div>
           );

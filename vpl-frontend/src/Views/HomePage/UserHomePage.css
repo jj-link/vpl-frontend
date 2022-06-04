@@ -46,10 +46,9 @@
 .search-button{
     background-color: var(--btn-blue);
     color: var(--btn-text-white);
-    float: right;
     border-radius: 10px;
     font-size: 1.21em;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
