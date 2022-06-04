@@ -4,8 +4,9 @@
   --btn-blue: #3891a6;
   --btn-text-white: #fbfbfb;
   --body-color: #b0c4de;
-  --container-color: #add8e6;
-  --text-color: #040505;
+  --inner-container-color: #add8e6;
+  --container-color: #6bbeba;
+  --text-color: #0a232b;
 }
 body {
   margin: 0;
