@@ -102,10 +102,13 @@ export const BookList: React.FC<any> = () => {
           );
         })}
         <div className="book-list-form-home-button">
-          { isOwner()?
+        { isOwner()?
           <Link to="/ownerhome">
-            <button className='book-list-form-btn'>back</button>
+            <button>back</button>
           </Link> :
+          <Link to="/userhome">
+            <button>back</button>
+          </Link>
           }
         </div>
     </div>

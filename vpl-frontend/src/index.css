@@ -1,11 +1,11 @@
 :root {
-  --bg: #A1B5D8;
-  --title: #432361;
-  --container: #343461;
-  --label: #816897;
-  --input-back:#d1a2f7;
-  --nav-bar: #2A2F3C;
-  --nav-link-btn: #5f42b1;
+  --border-color: #000;
+  --grey: #2d2e2e;
+  --btn-blue: #3891a6;
+  --btn-text-white: #fbfbfb;
+  --body-color: #b0c4de;
+  --container-color: #add8e6;
+  --text-color: #040505;
 }
 body {
   margin: 0;
@@ -14,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg);
+  background-color: var(--body-color);
 }
 
 code {
