@@ -5,11 +5,11 @@ import { AppDispatch, RootState } from '../../Store';
 import { checkoutBook, getAllBooks, getBookByIsbn, searchBooks } from '../../Slices/BookSlice';
 import { Navbar } from '../Navbar/Navbar';
 import { UserInfo } from 'os';
-import './BookList.css';
+
 // import { useNavigate } from 'react-router-dom';
 
 // go inside App for routing
-export const BookList: React.FC<any> = () => {
+export const SearchResultsList: React.FC<any> = () => {
   const allbooks = useSelector((state: RootState) => state.book.books);
   const searchResults = useSelector((state: RootState) => state.book.searchResults)
   const userRole = useSelector((state: RootState) => state.user.user?.userRole);
@@ -30,9 +30,6 @@ export const BookList: React.FC<any> = () => {
     if (!userInfo.isLoggedIn) {
       console.log("this ran and went back to login");
       navigator('/login');
-    }
-    else {
-      dispatch(getAllBooks())
     }
   }, [userInfo.isLoggedIn]);
 
@@ -68,19 +65,19 @@ export const BookList: React.FC<any> = () => {
   }
 
   return (
-    <div className='book-list-form'>
+    <div className='booklist'>
       <Navbar/>
-        <div className="book-list-form-title">
+        <div className="page-title">
             <h3>Search for a Book</h3>
         </div>
         <div className='search-container'>
         <input className="search-field" type="text" name="search-box" value={search} onChange={handleInput}/>
         <button className="search-button" onClick={handleSearch}>find book</button>
         </div>
-        {allbooks?.map((book) => {
+        {searchResults?.map((book) => {
           return (
-            <div className = 'book-list-form-container'>
-              <div className='book-list-form-details'>
+            <div className = 'book-container'>
+              <div className='book-details'>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.bookId}</p>
@@ -101,11 +98,15 @@ export const BookList: React.FC<any> = () => {
             </div>
           );
         })}
-        <div className="book-list-form-home-button">
+
+        <div className="home-button">
           { isOwner()?
-          <Link to="/ownerhome">
-            <button className='book-list-form-btn'>back</button>
+          <Link to="/search">
+            <button>back</button>
           </Link> :
+          <Link to="/search">
+            <button>back</button>
+          </Link>
           }
         </div>
     </div>

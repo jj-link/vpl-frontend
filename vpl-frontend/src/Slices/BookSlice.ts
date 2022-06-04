@@ -9,7 +9,9 @@ interface BookSliceState {
     books?: IBook[],
     recentbooks?: IBook[],
     popularbooks?: IBook[],
-    mybooks?: IBook[]
+    mybooks?: IBook[],
+    genrebooklist?: IBook[],
+    searchResults?: IBook[]
 }
 
 const initialBookState: BookSliceState = {
@@ -32,14 +34,9 @@ export const addBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            console.log(credentials);
-            await axios.post('http://localhost:8000/book/create', credentials)
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            //console.log(credentials);
+            const res = await axios.post('http://localhost:8000/book/create', credentials);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -56,7 +53,6 @@ type editbook = {
     summary: string;
     isbn: number;
     yearPublished: number;
-    checkedOutCount: number;
 }
 export const editBook = createAsyncThunk(
     'book/editbook',
@@ -64,14 +60,10 @@ export const editBook = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
-            console.log(credentials);
-            await axios.post('http://localhost:8000/book/update', credentials)
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            //console.log(credentials);
+            const res = await axios.put('http://localhost:8000/book/update', credentials);
+            //console.log(res.data);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -86,7 +78,7 @@ export const getAllBooks = createAsyncThunk(
     try {
         //axios.defaults.withCredentials = true;
         const res = await axios.get('http://localhost:8000/book/get-all-books');
-        console.log(res.data);
+        //console.log(res.data);
         return res.data;
       } catch (e) {
         console.log(e);
@@ -100,7 +92,7 @@ export const getPopularBooks = createAsyncThunk(
   try {
       //axios.defaults.withCredentials = true;
       const res = await axios.get('http://localhost:8000/book/get-books-most-popular');
-      console.log(res.data);
+      //console.log(res.data);
       return res.data;
     } catch (e) {
       console.log(e);
@@ -114,7 +106,7 @@ export const getRecentBooks = createAsyncThunk(
   try {
       //axios.defaults.withCredentials = true;
       const res = await axios.get('http://localhost:8000/book/recent');
-      console.log(res.data);
+      //console.log(res.data);
       return res.data;
     } catch (e) {
       console.log(e);
@@ -122,14 +114,15 @@ export const getRecentBooks = createAsyncThunk(
   }
 );
 
+
 export const getMyBooks = createAsyncThunk(
     'book/getmybooks',
     async (userId: number, thunkAPI) => {
     try {
         //axios.defaults.withCredentials = true;
-        console.log(userId);
-        const res = await axios.get('http://localhost:8000/user/checkout-show', {data:{userId}});
-        console.log(res.data);
+        //console.log(userId);
+        const res = await axios.get(`http://localhost:8000/user/checkout-show/${userId}`);
+        //console.log(res.data);
         return res.data;
       } catch (e) {
         console.log(e);
@@ -142,13 +135,79 @@ export const deleteBook = createAsyncThunk(
     async (isbn: number, thunkAPI) => {
         
         try {
-            await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
-            .then(res => {
-                if(res){
-                    console.log(res.data);
-                    return res.data;
-                }
-            });
+            const res = await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
+            //console.log(res.data);
+            return res.data;
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+export const getBooksByGenreId = createAsyncThunk(
+    'book/genrelist',
+    async (genreId: number, thunkAPI) => {
+        //console.log(genreId);
+        try {
+            let res = await axios.get(`http://localhost:8000/book/get-books-by-genreId/${genreId}`)
+            //console.log(res.data);
+            return res.data;
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+
+export const getBookByIsbn = createAsyncThunk(
+    'book/getbyisbn',
+    async (isbn: number | undefined, thunkAPI) => {
+        //console.log(isbn);
+        try {
+            let res = await axios.get(`http://localhost:8000/book/get-books-by-isbn/${isbn}`)
+            //console.log(res.data);
+            return res.data;
+        }
+        catch (e) {
+            console.log(e);
+            return thunkAPI.rejectWithValue('something went wrong');
+        }
+    }
+);
+
+type checkoutCredentials = {
+    userId?: number,
+    isbn: number
+}
+
+export const checkoutBook = createAsyncThunk(
+    'book/checkoutBook',
+    async (credentials: checkoutCredentials, thunkAPI) => {
+    try {
+        //axios.defaults.withCredentials = true;
+        //console.log("from checkout book" + credentials);
+        const res = await axios.post('http://localhost:8000/user/checkout-book', credentials);
+        //console.log(res.data);
+        return res.data;
+      } catch (e) {
+        console.log(e);
+      }
+    }
+);
+
+
+export const searchBooks = createAsyncThunk(
+    'book/searchbooks',
+    async (input: string, thunkAPI) => {
+        console.log(input);
+        try {
+            let res = await axios.get(`http://localhost:8000/book/search/${input}`)
+            console.log(res.data);
+            return res.data;
         }
         catch (e) {
             console.log(e);
@@ -218,6 +277,80 @@ export const BookSlice = createSlice({
             state.loading = false;
         });
         builder.addCase(getMyBooks.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+        //for genre list
+        builder.addCase(getBooksByGenreId.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBooksByGenreId.fulfilled, (state, action) => {
+            state.genrebooklist = action.payload;
+            //console.log("hello from redux " + state.genrebooklist);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(getBooksByGenreId.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        // get book by isbn
+        builder.addCase(getBookByIsbn.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getBookByIsbn.fulfilled, (state, action) => {
+            state.book = action.payload;
+            console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(getBookByIsbn.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        //update book
+        builder.addCase(editBook.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(editBook.fulfilled, (state, action) => {
+            state.book = action.payload;
+            console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(editBook.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        //checkout book
+        builder.addCase(checkoutBook.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(checkoutBook.fulfilled, (state, action) => {
+            //state.book = action.payload;
+            //console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(checkoutBook.rejected, (state, action) => {
+            state.error = true;
+            state.loading = false;
+        });
+
+        //search book
+        builder.addCase(searchBooks.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(searchBooks.fulfilled, (state, action) => {
+            state.searchResults = action.payload;
+            //console.log("hello from redux " + state.book);
+            state.error = false;
+            state.loading = false;
+        });
+        builder.addCase(searchBooks.rejected, (state, action) => {
             state.error = true;
             state.loading = false;
         });

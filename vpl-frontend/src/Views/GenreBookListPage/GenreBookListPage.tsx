@@ -1,5 +1,6 @@
-import React from 'react';
-import './RecentBooksPage.css';
+
+import React, { useEffect } from 'react';
+//import './GenreBookListPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../Store'
@@ -7,7 +8,7 @@ import { Navbar } from '../../Components/Navbar/Navbar';
 import { checkoutBook } from '../../Slices/BookSlice';
 
 // go inside App for routing
-export const RecentBooksPage: React.FC<any> = () => {
+export const GenreBookListPage: React.FC<any> = () => {
   const bookInfo = useSelector((state: RootState) => state.book);
   const userInfo = useSelector((state: RootState) => state.user)
   const navigator = useNavigate();
@@ -25,17 +26,23 @@ export const RecentBooksPage: React.FC<any> = () => {
     navigator('/userhome');
   }
 
+  useEffect(() =>{
+    console.log("in useeffect");
+    console.log(bookInfo.genrebooklist);
+  },[bookInfo])
+  
+
   return (
-    <div className='recent-page-books'>
+    <div className='genre-list-books'>
         <Navbar />
-        <div className="recent-page-title">
-            <h3>Recent Books</h3>
+        <div className="page-title">
+            <h3>Books by Genre: </h3>
         </div>
 
-        {bookInfo.recentbooks?.map((book) => {
+        {bookInfo.genrebooklist?.map((book) => {
           return (
-            <div className = 'recent-page-book-container'>
-              <div className='recent-page-book-details' key={book.bookId}>
+            <div className = 'book-container'>
+              <div className='book-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.genreId}</p>
@@ -49,9 +56,9 @@ export const RecentBooksPage: React.FC<any> = () => {
           );
         })}
 
-        <div className="recent-page-home-button">
+        <div className="home-button">
           <Link to="/home">
-            <button className='recent-page-btn'>back</button>
+            <button>back</button>
           </Link>
         </div>
     </div>
