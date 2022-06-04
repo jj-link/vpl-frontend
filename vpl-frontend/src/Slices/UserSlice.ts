@@ -179,7 +179,7 @@ export const UserSlice = createSlice({
             state.user = action.payload;
             state.error = false;
             state.loading = false;
-            state.isRegistered = true;//!state.isRegistered;
+            //state.isRegistered = true;//!state.isRegistered;
         });
         builder.addCase(registerUser.rejected, (state, action) => {
             state.error = true;
