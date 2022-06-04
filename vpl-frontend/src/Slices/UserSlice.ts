@@ -69,6 +69,7 @@ export const registerUser = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
+            console.log(credentials);
             const res = await axios.post('http://localhost:8000/user/register', credentials);
             console.log(res.data);
             return res.data;
@@ -178,7 +179,7 @@ export const UserSlice = createSlice({
             state.user = action.payload;
             state.error = false;
             state.loading = false;
-            state.isRegistered = true;//!state.isRegistered;
+            //state.isRegistered = true;//!state.isRegistered;
         });
         builder.addCase(registerUser.rejected, (state, action) => {
             state.error = true;

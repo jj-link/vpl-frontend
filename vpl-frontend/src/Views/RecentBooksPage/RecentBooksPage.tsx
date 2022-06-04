@@ -25,6 +25,24 @@ export const RecentBooksPage: React.FC<any> = () => {
     navigator('/userhome');
   }
 
+  const idToGenre = (genreId: number) => {
+    let genre = "";
+    if (genreId === 1){
+      genre = "Fantasy";
+    }else if(genreId === 2){
+      genre = "History";
+    }else if(genreId === 3){
+      genre = "Romance";
+    }else if(genreId === 4){
+      genre = "Sci-fi";
+    }else if(genreId === 5){
+      genre = "Comedy";
+    }else{
+      genre = "Genre not found";
+    }
+    return genre;
+  }
+
   return (
     <div className='recent-page-books'>
         <Navbar />
@@ -38,7 +56,7 @@ export const RecentBooksPage: React.FC<any> = () => {
               <div className='recent-page-book-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
-                <p>GenreId: {book.genreId}</p>
+                <p>Genre: {idToGenre(book.genreId)}</p>
                 <p>ISBN: {book.isbn}</p>
                 <p>Summay: {book.summary}</p>
               </div>

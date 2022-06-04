@@ -10,6 +10,24 @@ export const MyBooksPage: React.FC<any> = () => {
   // const navigator = useNavigate();
   // const dispatch: AppDispatch = useDispatch();
 
+  const idToGenre = (genreId: number) => {
+    let genre = "";
+    if (genreId === 1){
+      genre = "Fantasy";
+    }else if(genreId === 2){
+      genre = "History";
+    }else if(genreId === 3){
+      genre = "Romance";
+    }else if(genreId === 4){
+      genre = "Sci-fi";
+    }else if(genreId === 5){
+      genre = "Comedy";
+    }else{
+      genre = "Genre not found";
+    }
+    return genre;
+  }
+
   return (
     <div className='my-books-page'>
         <Navbar />
@@ -23,7 +41,7 @@ export const MyBooksPage: React.FC<any> = () => {
               <div className='my-books-page-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
-                <p>GenreId: {book.genreId}</p>
+                <p>Genre: {idToGenre(book.genreId)}</p>
                 <p>ISBN: {book.isbn}</p>
                 <p>Summay: {book.summary}</p>
               </div>

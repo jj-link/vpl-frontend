@@ -67,6 +67,24 @@ export const BookList: React.FC<any> = () => {
     navigator('/search/results');
   }
 
+  const idToGenre = (genreId: number) => {
+    let genre = "";
+    if (genreId === 1){
+      genre = "Fantasy";
+    }else if(genreId === 2){
+      genre = "History";
+    }else if(genreId === 3){
+      genre = "Romance";
+    }else if(genreId === 4){
+      genre = "Sci-fi";
+    }else if(genreId === 5){
+      genre = "Comedy";
+    }else{
+      genre = "Genre not found";
+    }
+    return genre;
+  }
+
   return (
     <div className='book-list-form'>
       <Navbar/>
@@ -83,7 +101,7 @@ export const BookList: React.FC<any> = () => {
               <div className='book-list-form-details'>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
-                <p>GenreId: {book.bookId}</p>
+                <p>Genre: {idToGenre(book.genreId)}</p>
                 <p>ISBN: {book.isbn}</p>
                 <p>Year Published: {book.yearPublished}</p>
                 <p>Checked Out Count: {book.checkedOutCount}</p>

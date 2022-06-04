@@ -15,7 +15,7 @@ export const AllUsersPage: React.FC<any> = () => {
     <div className='all-users'>
         <Navbar />
         <div className="page-title">
-            <h3 className='all-User-Title'>All Employees</h3>
+            <h3 className='all-User-Title'>All Users</h3>
         </div>
 
         {usersAll?.map((user) => {

@@ -7,16 +7,16 @@ import { AppDispatch, RootState } from "../../Store";
 export const EditBookForm:React.FC = () => {
 
     const userInfo = useSelector((state:RootState) => state.user.user);
-    const bookInfo = useSelector((state:RootState) => state.book);
+    const bookInfo = useSelector((state:RootState) => state.book.book);
 
-    const [bookId] = useState(bookInfo?.book?.bookId!);
-    const [title, setTitle] = useState(bookInfo?.book?.title!);
-    const [author, setAuthor] = useState(bookInfo?.book?.author!);
-    const [genreId, setGenreId] = useState(bookInfo?.book?.genreId!);
-    const [isbn, setIsbn] = useState(bookInfo?.book?.isbn!);
-    const [yearPublished, setYearPublished] = useState(bookInfo?.book?.yearPublished!);
-    const [checkedOutCount] = useState(bookInfo?.book?.checkedOutCount!);
-    const [summary, setSummary] = useState(bookInfo?.book?.summary!);
+    const [bookId] = useState(bookInfo?.bookId);
+    const [title, setTitle] = useState(bookInfo?.title);
+    const [author, setAuthor] = useState(bookInfo?.author);
+    const [genreId, setGenreId] = useState(bookInfo?.genreId);
+    const [isbn, setIsbn] = useState(bookInfo?.isbn);
+    const [yearPublished, setYearPublished] = useState(bookInfo?.yearPublished);
+    const [checkedOutCount] = useState(bookInfo?.checkedOutCount);
+    const [summary, setSummary] = useState(bookInfo?.summary);
 
     const navigator = useNavigate();
     const dispatch: AppDispatch = useDispatch();
@@ -73,11 +73,11 @@ export const EditBookForm:React.FC = () => {
             <form className="edit-book-form">
                 <div className="title-container">
                     <h4 className="input-field-label">Title</h4>
-                    <input className="edit-book-input" type="text" name="title" placeholder={bookInfo?.book?.title} value={title} onChange={handleInput}/>
+                    <input className="edit-book-input" type="text" name="title" placeholder={bookInfo?.title} value={title} onChange={handleInput}/>
                 </div>
                 <div className="author-container">
                     <h4 className="input-field-label">Author</h4>
-                    <input className="edit-book-input" type="text" name="author" placeholder={bookInfo?.book?.author} value={author} onChange={handleInput}/>
+                    <input className="edit-book-input" type="text" name="author" placeholder={bookInfo?.author} value={author} onChange={handleInput}/>
                 </div>
                 <div className="genre-id-container">
                     <h4 className="input-field-label">Please Select Genre</h4>
@@ -92,15 +92,15 @@ export const EditBookForm:React.FC = () => {
                 </div>
                 <div className="summary-container">
                     <h4 className="input-field-label">Summary</h4>
-                    <input className="edit-book-input" type="text" name="summary" placeholder={bookInfo.book?.summary} onChange={handleInput}/>
+                    <input className="edit-book-input" type="text" name="summary" placeholder={bookInfo?.summary} onChange={handleInput}/>
                 </div>
                 <div className="isbn-container">
                     <h4 className="input-field-label">ISBN</h4>
-                    <input className="edit-book-input" type="number" name="isbn" placeholder={bookInfo.book?.isbn.toString()} onChange={handleInput}/>
+                    <input className="edit-book-input" type="number" name="isbn" placeholder={bookInfo?.isbn.toString()} onChange={handleInput}/>
                 </div>
                 <div className="year-published-container">
                     <h4 className="input-field-label">Year Published</h4>
-                    <input className="edit-book-input" type="number" name="yearPublished" placeholder={bookInfo.book?.yearPublished.toString()} onChange={handleInput}/>
+                    <input className="edit-book-input" type="number" name="yearPublished" placeholder={bookInfo?.yearPublished.toString()} onChange={handleInput}/>
                 </div>
                 
             </form>

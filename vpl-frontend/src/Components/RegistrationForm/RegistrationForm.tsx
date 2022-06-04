@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Store';
 import { registerUser, toggleError } from '../../Slices/UserSlice';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './RegistrationForm.css';
 export const RegistrationForm: React.FC = () => {
     const [email, setEmail] = useState<string>("");
@@ -10,6 +10,7 @@ export const RegistrationForm: React.FC = () => {
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const dispatch: AppDispatch = useDispatch();
+    const navigator = useNavigate();
     
     const handleInput = (event:React.ChangeEvent<HTMLInputElement>) => {
         if(event.target.name === "firstName"){
@@ -27,6 +28,7 @@ export const RegistrationForm: React.FC = () => {
     const handleRegister = (event:React.MouseEvent<HTMLButtonElement>) => {
         let credentials = {email, password, firstName, lastName};
         dispatch(registerUser(credentials));
+        navigator('/login');
     }
     
     return(
