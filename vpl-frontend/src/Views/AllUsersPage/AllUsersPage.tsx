@@ -32,7 +32,7 @@ export const AllUsersPage: React.FC<any> = () => {
         })}
 
         <div className="all-users-home-button">
-          <Link to="/home">
+          <Link to="/ownerhome">
             <button className='all-users-back-btn'>back</button>
           </Link>
         </div>

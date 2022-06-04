@@ -7,6 +7,7 @@ import { RootState } from '../../Store';
 import {logout} from '../../Slices/UserSlice';
 
 export const Navbar: React.FC = () => {
+    const userRole = useSelector((state: RootState) => state.user.user?.userRole);
 
     const dispatch:AppDispatch = useDispatch();
 
@@ -16,13 +17,27 @@ export const Navbar: React.FC = () => {
 
     const user = useSelector((state:RootState) => state.user.user);
 
+    const isOwner=() => {
+        if(userRole == 2){
+          return true;
+        }
+        else{
+          return false;
+        }
+    }
+
     return(
         <nav className="navbar">
             <div className="nav-container">
                 <ul className='nav-menu'>
-                    <li className="nav-item">
-                        <Link to={"/home"} className="nav-link">Home</Link>
-                    </li>
+                { isOwner()?
+                <Link to="/ownerhome">
+                <li className="nav-link">Home</li>
+                </Link> :
+                <Link to="/userhome">
+                <li className="nav-link">Home</li>
+                </Link>
+                }
 
                     <li className="nav-item">
                         <Link to={"/profile"} className="nav-link">Profile</Link>
