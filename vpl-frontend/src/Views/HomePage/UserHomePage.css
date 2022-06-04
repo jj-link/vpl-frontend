@@ -1,53 +1,53 @@
 :root {
-    --bg: #A1B5D8;
-    --title: #432361;
-    --container: #343461;
-    --label: #816897;
-    --input-back:#d1a2f7;
-    --nav-bar: #2A2F3C;
-    --nav-link-btn: #5f42b1;
-    --font-color: #9079d1;
-}
+    --border-color: #000;
+    --grey: #2d2e2e;
+    --btn-blue: #3891a6;
+    --btn-text-white: #fbfbfb;
+    --body-color: #b0c4de;
+    --inner-container-color: #add8e6;
+    --container-color: #6bbeba;
+    --text-color: #0a232b;
+  }
 .menu-bar{
     margin-bottom: 120px;
     margin-top: 3px;
 }
 .popular-button{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
     border-radius: 10px;
-    font-weight: bold;
     font-size: 1.2em;
     margin-left: 5px;
 }
 
 .recent-button{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
     border-radius: 10px;
-    font-weight: bold;
     font-size: 1.2em;
     margin-left: 10px;
 }
 
 .mybooks-button{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
     border-radius: 10px;
-    font-weight: bold;
     font-size: 1.2em;
     margin-left: 10px;
 }
 
 .select-genre{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
     border-radius: 10px;
-    font-weight: bolder;
     font-size: 1.21em;
     margin-left: 10px;
 }
 .search-button{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
     float: right;
     border-radius: 10px;
-    font-weight: bold;
     font-size: 1.21em;
     margin-right: 10px;
 }
@@ -60,13 +60,13 @@
 }
 
 .row1{
-    background-color: var(--container);
+    background-color: var(--container-color);
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
 }
 .row1-preview-header{
-    color: var(--nav-link-btn);
+    color: var(--btn-text-white);
     display: inline-block;
 }
 .row1-preview-list{
@@ -80,7 +80,7 @@
     
 }
 .row1-book-container{
-   background-color: var(--label);
+   background-color: var(--inner-container-color);
    margin-left: 10px;
    margin-right: 10px;
    height: 300px;
@@ -89,6 +89,7 @@
    flex-shrink: 0;
 }
 .row1-book-details{
+    color: var(--text-color);
     margin-left: 10px;
 }
 
@@ -97,14 +98,14 @@
 /*----------------------------------------------------------------*/
 
 .row2{
-    background-color: var(--container);
+    background-color: var(--container-color);
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
 }
 
 .row2-preview-header{
-    color: var(--nav-link-btn);
+    color: var(--btn-text-white);
     display: inline-block;
 }
 .row2-preview-list{
@@ -118,7 +119,7 @@
     
 }
 .row2-book-container{
-   background-color: var(--label);
+   background-color: var(--inner-container-color);
    margin-left: 10px;
    margin-right: 10px;
    height: 300px;
@@ -127,6 +128,7 @@
    flex-shrink: 0;
 }
 .row2-book-details{
+    color: var(--text-color);
     margin-left: 10px;
 }
 
@@ -135,13 +137,13 @@
 /*----------------------------------------------------------------*/
 
 .row3{
-    background-color: var(--container);
+    background-color: var(--container-color);
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
 }
 .row3-preview-header{
-    color: var(--nav-link-btn);
+    color: var(--btn-text-white);
     display: inline-block;
 }
 .row3-preview-list{
@@ -153,7 +155,7 @@
     flex-direction: row;
 }
 .row3-book-container{
-   background-color: var(--label);
+   background-color: var(--inner-container-color);
    margin-left: 10px;
    margin-right: 10px;
    height: 300px;
@@ -162,5 +164,6 @@
    flex-shrink: 0;
 }
 .row3-book-details{
+    color: var(--text-color);
     margin-left: 10px;
 }

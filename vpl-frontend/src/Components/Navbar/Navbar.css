@@ -1,18 +1,19 @@
 :root {
-    --bg: #A1B5D8;
-    --title: #432361;
-    --container: #343461;
-    --label: #816897;
-    --input-back:#d1a2f7;
-    --nav-bar: #2A2F3C;
-    --nav-link-btn: #5f42b1;
-}
-
+    --border-color: #000;
+    --grey: #2d2e2e;
+    --btn-blue: #3891a6;
+    --btn-text-white: #fbfbfb;
+    --body-color: #b0c4de;
+    --inner-container-color: #add8e6;
+    --container-color: #6bbeba;
+    --text-color: #0a232b;
+  }
+  
 .navbar{
     height: 90px;
 }
 .nav-container{
-    background-color: var(--nav-bar);
+    background-color: var(--text-color);
     float: left;
     position: fixed;
     left: 0;
@@ -30,7 +31,7 @@ ul{
     padding-left: 20px; 
 }
 .nav-link{
-    color: var(--nav-link-btn);
+    color: var(--btn-text-white);
     font-size: 1em;
     text-decoration: none;
     font-size: 1em;
@@ -43,5 +44,6 @@ ul{
 }
 .logout-btn{
     font-size: 1em;
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
 }

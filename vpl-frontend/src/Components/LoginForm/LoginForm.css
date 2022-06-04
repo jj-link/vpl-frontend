@@ -1,15 +1,14 @@
 :root {
-    --bg: #000;
-    --grey: #2d2e2e;
-    --btn-blue: #3891a6;
-    --accent: #23ce6b;
-    --text-white: #fbfbfb;
-  }
-
-  body {
-    background-color: lightsteelblue;
-  }
-  
+  --border-color: #000;
+  --grey: #2d2e2e;
+  --btn-blue: #3891a6;
+  --btn-text-white: #fbfbfb;
+  --body-color: #b0c4de;
+  --inner-container-color: #add8e6;
+  --container-color: #6bbeba;
+  --text-color: #0a232b;
+}
+ 
   .login {
     width: 55%;
     height: fit-content;
@@ -23,14 +22,14 @@
     border-radius: 5px;
     border: 1px solid var(--grey);
     padding: 20px;
-    background-color: lightblue;
+    background-color: var(--container-color);
   }
 
   
   .login-header {
     margin-bottom: 50px;
     text-align: center;
-    color: var(--text-black);
+    color: var(--text-color);
     font-size: 30pt;
     font-weight: bold;
   }
@@ -45,7 +44,7 @@
   }
   
   .input-field-label {
-    color: var(--text-black);
+    color: var(--text-color);
     margin-left: 4px;
     margin-bottom: 10px;
     align-items: center;
@@ -61,7 +60,7 @@
     padding: auto;
     padding-left: 25px;
     padding-right: 25px; 
-    border: 2px solid var(--bg);
+    border: 2px solid var(--border-color);
     font-size: 14pt;
     text-align: center;
   }
