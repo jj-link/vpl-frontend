@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from '../../Store';
 import { checkoutBook, getAllBooks, getBookByIsbn, searchBooks } from '../../Slices/BookSlice';
 import { Navbar } from '../Navbar/Navbar';
 import { UserInfo } from 'os';
-
+import './BookList.css';
 // import { useNavigate } from 'react-router-dom';
 
 // go inside App for routing
@@ -68,9 +68,9 @@ export const BookList: React.FC<any> = () => {
   }
 
   return (
-    <div className='booklist'>
+    <div className='book-list-form'>
       <Navbar/>
-        <div className="page-title">
+        <div className="book-list-form-title">
             <h3>Search for a Book</h3>
         </div>
         <div className='search-container'>
@@ -79,8 +79,8 @@ export const BookList: React.FC<any> = () => {
         </div>
         {allbooks?.map((book) => {
           return (
-            <div className = 'book-container'>
-              <div className='book-details'>
+            <div className = 'book-list-form-container'>
+              <div className='book-list-form-details'>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.bookId}</p>
@@ -101,15 +101,11 @@ export const BookList: React.FC<any> = () => {
             </div>
           );
         })}
-
-        <div className="home-button">
+        <div className="book-list-form-home-button">
           { isOwner()?
           <Link to="/ownerhome">
-            <button>back</button>
+            <button className='book-list-form-btn'>back</button>
           </Link> :
-          <Link to="/userhome">
-            <button>back</button>
-          </Link>
           }
         </div>
     </div>

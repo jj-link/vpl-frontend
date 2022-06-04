@@ -1,6 +1,6 @@
 
 import React from 'react';
-//import './PopularBooksPage.css';
+import './PopularBooksPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../Store'
@@ -27,16 +27,16 @@ export const PopularBooksPage: React.FC<any> = () => {
   }
 
   return (
-    <div className='popular-books'>
+    <div className='page-popular-books'>
         <Navbar />
-        <div className="page-title">
-            <h3>Popular Books</h3>
+        <div className="popular-page-title">
+            <h3 className='popular-page-header'>Popular Books</h3>
         </div>
 
         {bookInfo.popularbooks?.map((book) => {
           return (
-            <div className = 'book-container'>
-              <div className='book-details' key={book.bookId}>
+            <div className = 'popular-page-book-container'>
+              <div className='popular-page-book-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.genreId}</p>
@@ -51,9 +51,9 @@ export const PopularBooksPage: React.FC<any> = () => {
           );
         })}
 
-        <div className="home-button">
+        <div className="popular-page-home-button">
           <Link to="/home">
-            <button>back</button>
+            <button className='popular-page-back-btn'>back</button>
           </Link>
         </div>
     </div>

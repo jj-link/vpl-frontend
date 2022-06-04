@@ -1,5 +1,5 @@
 import React from 'react';
-//import './MyBooksPage.css';
+import './MyBooksPage.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store'
@@ -11,16 +11,16 @@ export const MyBooksPage: React.FC<any> = () => {
   // const dispatch: AppDispatch = useDispatch();
 
   return (
-    <div className='my-books'>
+    <div className='my-books-page'>
         <Navbar />
-        <div className="page-title">
+        <div className="my-books-page-title">
             <h3>My Books</h3>
         </div>
 
         {bookInfo.mybooks?.map((book) => {
           return (
-            <div className = 'book-container'>
-              <div className='book-details' key={book.bookId}>
+            <div className = 'my-books-page-container'>
+              <div className='my-books-page-details' key={book.bookId}>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>GenreId: {book.genreId}</p>
@@ -31,9 +31,9 @@ export const MyBooksPage: React.FC<any> = () => {
           );
         })}
 
-        <div className="home-button">
+        <div className="my-books-page-home-button">
           <Link to="/home">
-            <button>back</button>
+            <button className='my-books-page-btn'>back</button>
           </Link>
         </div>
     </div>
