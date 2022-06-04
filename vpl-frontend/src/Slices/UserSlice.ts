@@ -69,6 +69,7 @@ export const registerUser = createAsyncThunk(
         
         try {
             //axios.defaults.withCredentials = true;
+            console.log(credentials);
             const res = await axios.post('http://localhost:8000/user/register', credentials);
             console.log(res.data);
             return res.data;
