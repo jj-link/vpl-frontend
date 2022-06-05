@@ -109,11 +109,11 @@ export const BookList: React.FC<any> = () => {
               </div>
               <div className='book-buttons'>  
               { isOwner()?  
-                <div className='update-button'> 
-                  <button data-id={book.isbn} onClick={handleUpdate}>Update</button>
+                <div className='book-list-form-update-button'> 
+                  <button className='book-list-form-update-btn' data-id={book.isbn} onClick={handleUpdate}>Update</button>
                 </div> :
-                <div className='checkout-button'>
-                  <button data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
+                <div className='book-list-form-checkout-button'>
+                  <button className='book-list-form-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
                 </div> }
               </div> 
             </div>
@@ -122,10 +122,10 @@ export const BookList: React.FC<any> = () => {
         <div className="book-list-form-home-button">
         { isOwner()?
           <Link to="/ownerhome">
-            <button>back</button>
+            <button className='book-list-owner-home-btn'>back</button>
           </Link> :
           <Link to="/userhome">
-            <button>back</button>
+            <button className='book-list-user-home-btn'>back</button>
           </Link>
           }
         </div>

@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from '../../Store';
 import { checkoutBook, getAllBooks, getBookByIsbn, searchBooks } from '../../Slices/BookSlice';
 import { Navbar } from '../Navbar/Navbar';
 import { UserInfo } from 'os';
-
+import './SearchResultList.css';
 // import { useNavigate } from 'react-router-dom';
 
 // go inside App for routing
@@ -83,19 +83,19 @@ export const SearchResultsList: React.FC<any> = () => {
   }
 
   return (
-    <div className='booklist'>
+    <div className='searched-result-booklist'>
       <Navbar/>
-        <div className="page-title">
+        <div className="searched-result-page-title">
             <h3>Search for a Book</h3>
         </div>
         <div className='search-container'>
-        <input className="search-field" type="text" name="search-box" value={search} onChange={handleInput}/>
-        <button className="search-button" onClick={handleSearch}>find book</button>
+        <input className="searched-result-search-field" type="text" name="search-box" value={search} onChange={handleInput}/>
+        <button className="searched-result-search-button" onClick={handleSearch}>find book</button>
         </div>
         {searchResults?.map((book) => {
           return (
-            <div className = 'book-container'>
-              <div className='book-details'>
+            <div className = 'searched-result-book-container'>
+              <div className='searched-result-book-details'>
                 <p>Title: {book.title}</p>
                 <p>Author: {book.author}</p>
                 <p>Genre: {idToGenre(book.genreId)}</p>
@@ -104,26 +104,26 @@ export const SearchResultsList: React.FC<any> = () => {
                 <p>Checked Out Count: {book.checkedOutCount}</p>
                 <p>Summary: {book.summary}</p>
               </div>
-              <div className='book-buttons'>  
+              <div className='searched-result-book-buttons'>  
               { isOwner()?  
-                <div className='update-button'> 
-                  <button data-id={book.isbn} onClick={handleUpdate}>Update</button>
+                <div className='searched-result-owner-update-button'> 
+                  <button className='searched-result-owner-update-btn' data-id={book.isbn} onClick={handleUpdate}>Update</button>
                 </div> :
-                <div className='checkout-button'>
-                  <button data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
+                <div className='searched-result-user-checkout-button'>
+                  <button className='searched-result-user-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
                 </div> }
               </div> 
             </div>
           );
         })}
 
-        <div className="home-button">
+        <div className="searched-result-home-button">
           { isOwner()?
           <Link to="/search">
-            <button>back</button>
+            <button className='searched-result-owner-home-btn'>back</button>
           </Link> :
           <Link to="/search">
-            <button>back</button>
+            <button className='searched-result-user-home-btn'>back</button>
           </Link>
           }
         </div>

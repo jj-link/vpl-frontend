@@ -7,33 +7,33 @@
     --inner-container-color: #add8e6;
     --container-color: #6bbeba;
     --text-color: #0a232b;
-  }
-.page-popular-books{
+}
+.genre-list-books{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.popular-page-title{
-    font-size: 2.6em;
+.genre-list-page-title{
+    font-size: 2.3em;
     color: var(--text-color);
 }
-.popular-page-book-container{
+.genre-list-book-container{
     background-color: var(--container-color);
     width: 700px;
-    height: 580px;
+    height: 540px;
     margin-bottom: 20px;
     margin-top: 15px;
     text-align: center;
 }
-.popular-page-book-details{
+.genre-list-book-details{
     background-color: var(--inner-container-color);
     color: var(--text-color);
     font-size: 2.2em;
     margin-left: 15px;
     margin-right: 15px;
-    height: 480px
+    height: 430px
 }
-.popular-page-book-checkout-btn{
+.genre-list-checkout-btn{
     border-radius: 10px;
     font-size: 1.5em;
     background-color: var(--btn-blue);
@@ -41,14 +41,14 @@
     margin-top: 10px;
     margin-bottom: 20px;
 }
-.popular-page-home-button{
-    margin-top: 10px;
-    margin-bottom: 20px;
+.genre-list-home-button{
+    margin-top: -10px;
+    margin-bottom: 50px;
 }
-.popular-page-back-btn{
-    background-color: var(--btn-blue);
+.genre-list-home-btn{
     border-radius: 10px;
-    font-size: 1.8em;
+    font-size: 1.5em;
     width: 120px;
+    background-color: var(--btn-blue);
     color: var(--btn-text-white);
 }

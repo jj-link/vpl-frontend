@@ -8,19 +8,27 @@
     --container-color: #6bbeba;
     --text-color: #0a232b;
   }
-.book-list-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.book-list-form-header{
-    align-items: center;
-}
-.book-list-form-title{
-    font-size: 2.6em;
-    color: var(--text-color);
-}
-.book-list-form-container{
+  .searched-result-booklist{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .searched-result-page-title{
+      font-size: 2.7em;
+      color: var(--text-color);
+  }
+  .searched-result-search-field{
+    font-size: 1.5em;
+  }
+  .searched-result-search-button{
+    font-size: 1.5em;
+    border-radius: 10px;
+    background-color: var(--btn-blue);
+    color: var(--btn-text-white);
+    margin-left: 5px;
+  }
+
+.searched-result-book-container{
     background-color: var(--container-color);
     width: 700px;
     height: 660px;
@@ -28,7 +36,7 @@
     margin-top: 15px;
     text-align: center;
 }
-.book-list-form-details{
+.searched-result-book-details{
     background-color: var(--inner-container-color);
     color: var(--text-color);
     font-size: 2.2em;
@@ -36,31 +44,28 @@
     margin-right: 15px;
     height: 570px
 }
-.book-list-form-update-btn{
+
+.searched-result-owner-update-btn{
     background-color: var(--btn-blue);
     font-size: 1.8em;
     border-radius: 10px;
     margin-top: 5px;
-    color: var(--btn-text-white);
 }
-.book-list-form-checkout-btn{
+.searched-result-user-checkout-btn{
     background-color: var(--btn-blue);
     font-size: 1.8em;
     border-radius: 10px;
     margin-top: 5px;
-    color: var(--btn-text-white);
 }
-.book-list-owner-home-btn{
+.searched-result-owner-home-btn{
     background-color: var(--btn-blue);
     border-radius: 10px;
     font-size: 1.8em;
     width: 120px;
-    color: var(--btn-text-white);
 }
-.book-list-user-home-btn{
+.searched-result-user-home-btn{
     background-color: var(--btn-blue);
     border-radius: 10px;
     font-size: 1.8em;
     width: 120px;
-    color: var(--btn-text-white);
 }

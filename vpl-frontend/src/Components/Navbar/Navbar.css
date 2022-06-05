@@ -22,9 +22,10 @@
 
 ul{
     display: flex;
-	list-style: none;
+	  list-style: none;
     font-size: 25px;
     margin-left: -55px;
+
 }
 
 
