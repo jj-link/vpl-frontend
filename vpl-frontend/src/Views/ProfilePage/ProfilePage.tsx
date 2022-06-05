@@ -29,10 +29,10 @@ export const ProfilePage:React.FC = () => {
                     <h1>Profile of {userState.user?.firstName} {userState.user?.lastName}</h1>
                 </div>
                 <div className="profile-body">
-                    <p className="profile-firstName">FirstName: {userState?.user?.firstName}</p>
-                    <p className="profile-lastName">LastName: {userState.user?.lastName}</p>
-                    <p className="profile-email">Email: {userState.user?.email}</p>
-                    <p className="profile-password">Password: ****** </p>
+                    <label className="profile-firstName">FirstName: {userState?.user?.firstName}</label>
+                    <label className="profile-lastName">LastName: {userState.user?.lastName}</label>
+                    <label className="profile-email">Email: {userState.user?.email}</label>
+                    <label className="profile-password">Password: ****** </label>
                 </div>
                 <Link to={"/edit/"} className="edit-info-link">
                     <button className="edit-info-btn">Edit Information</button>

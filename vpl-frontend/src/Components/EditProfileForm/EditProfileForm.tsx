@@ -54,27 +54,35 @@ export const EditProfileForm:React.FC = () => {
             </div>
             <form className="edit-profile-form">
                 <div className="edit-first-name-container">
-                    <h4 className="input-field-label">Please Enter First Name</h4>
-                    <input className="registration-input" type="text" name="firstName" placeholder={userInfo?.firstName} value={firstName} onChange={handleInput}/>
+                    <label className="input-field-label">Please Enter First Name</label>
+                    <div className="input-container">
+                    <input className="edit-profile-input" type="text" name="firstName" placeholder={userInfo?.firstName} value={firstName} onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="edit-last-name-container">
-                    <h4 className="input-field-label">Please Enter Last Name</h4>
-                    <input className="registration-input" type="text" name="lastName" placeholder={userInfo?.lastName} value={lastName} onChange={handleInput}/>
+                    <label className="input-field-label">Please Enter Last Name</label>
+                    <div className="input-container">
+                    <input className="edit-profile-input" type="text" name="lastName" placeholder={userInfo?.lastName} value={lastName} onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="edit-email-container">
-                    <h4 className="input-field-label">Please Enter Email</h4>
-                    <input className="registration-input" type="text" placeholder={userInfo?.email} name="email" value={email} onChange={handleInput}/>
+                    <label className="input-field-label">Please Enter Email</label>
+                    <div className="input-container">
+                    <input className="edit-profile-input" type="text" placeholder={userInfo?.email} name="email" value={email} onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="edit-password-container">
-                    <h4 className="input-field-label">Please Enter Password</h4>
-                    <input className="registration-input" type="password" name="password" placeholder="password" value={password} onChange={handleInput}/>
+                    <label className="input-field-label">Please Enter Password</label>
+                    <div className="input-container">
+                    <input className="edit-profile-input" type="password" name="password" placeholder="password" value={password} onChange={handleInput}/>
+                    </div>
                 </div>
                 
             </form>
-            <div className='Update-Profile-buttons'>
-                <button className="edit-button" onClick={handleEditProfile}>Update Profile</button>
-                <Link to={"/login"} className="nav-login">
-                    <button className='edit-login-button'>Back To Login</button>
+            <div className='buttons'>
+                <button className="update-button" onClick={handleEditProfile}>Update Profile</button>
+                <Link to={"/profile"} className="nav-profile">
+                    <button className='back-button'>Back</button>
                 </Link>
             </div>
     

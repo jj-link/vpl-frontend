@@ -22,11 +22,17 @@
 
 ul{
     display: flex;
-	list-style: none;
+	  list-style: none;
     font-size: 25px;
-    margin-left: -25px;
-      
+    margin-left: -55px;
+
 }
+
+
+.nav-menu{
+    padding-left: 100px;
+}
+
 .nav-item{
     padding-left: 20px; 
 }

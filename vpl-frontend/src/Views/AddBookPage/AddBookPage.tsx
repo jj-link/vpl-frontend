@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Store';
 import { useNavigate } from 'react-router-dom';
+import './AddBookPage.css';
 
 import { AddBookForm } from '../../Components/AddBookForm/AddBookForm';
 

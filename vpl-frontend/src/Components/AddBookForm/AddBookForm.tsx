@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Store';
 import { addBook } from '../../Slices/BookSlice';
 import {Link} from 'react-router-dom';
+import './AddBookForm.css';
 
 export const AddBookForm: React.FC = () => {
 
@@ -53,15 +54,20 @@ export const AddBookForm: React.FC = () => {
             </div>
             <form className="add-book-form">
                 <div className="title-container">
-                    <h4 className="input-field-label">Please Enter Book Title</h4>
+                    <label className="input-field-label">Please Enter Book Title</label>
+                    <div className='input-container'>
                     <input className="add-book-input" type="text" name="title" onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="author-container">
-                    <h4 className="input-field-label">Please Enter Author Name</h4>
+                    <label className="input-field-label">Please Enter Author Name</label>
+                    <div className='input-container'>
                     <input className="add-book-input" type="text" name="author" onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="genreId-container">
-                    <h4 className="input-field-label">Please Select Genre</h4>
+                    <label className="input-field-label">Please Select Genre</label>
+                    <div className='input-container'>
                     <select className="select-genre" name="genreId" onChange={handleSelect}>
                         <option value="none" selected disabled hidden>Genre</option>
                         <option value="1">Fantasy</option>
@@ -70,18 +76,25 @@ export const AddBookForm: React.FC = () => {
                         <option value="4">Sci-fi</option>
                         <option value="5">Comedy</option>
                     </select>
+                    </div>
                 </div>
                 <div className="summary-container">
-                    <h4 className="input-field-label">Please Enter Summary</h4>
+                    <label className="input-field-label">Please Enter Summary</label>
+                    <div className='input-container'>
                     <input className="add-book-input" type="text" name="summary" onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="isbn-container">
-                    <h4 className="input-field-label">Please Enter ISBN</h4>
+                    <label className="input-field-label">Please Enter ISBN</label>
+                    <div className='input-container'>
                     <input className="add-book-input" type="number" name="isbn" onChange={handleInput}/>
+                    </div>
                 </div>
                 <div className="year-published-container">
-                    <h4 className="input-field-label">Please Enter Year Published</h4>
+                    <label className="input-field-label">Please Enter Year Published</label>
+                    <div className='input-container'>
                     <input className="add-book-input" type="number" name="yearPublished" onChange={handleInput}/>
+                    </div>
                 </div>
                 
             </form>
