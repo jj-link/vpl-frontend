@@ -61,7 +61,7 @@ export const RecentBooksPage: React.FC<any> = () => {
                 <p>Summay: {book.summary}</p>
               </div>
               <div className='checkout-button'>
-                  <button data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
+                  <button className='recent-page-book-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>
               </div>
             </div>
           );

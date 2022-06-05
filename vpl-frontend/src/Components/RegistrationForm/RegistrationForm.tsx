@@ -38,20 +38,20 @@ export const RegistrationForm: React.FC = () => {
             </div>
             <form className="register-form">
                 <div className="first-name-container">
-                    <h4 className="input-field-label">Please Enter First Name</h4>
-                    <input className="registration-input" type="text" name="firstName" placeholder="First name" onChange={handleInput}/>
+                    <h4 className="register-input-field-label">Please Enter First Name</h4>
+                    <input className="register-registration-input" type="text" name="firstName" placeholder="First name" onChange={handleInput}/>
                 </div>
                 <div className="last-name-container">
-                    <h4 className="input-field-label">Please Enter Last Name</h4>
-                    <input className="registration-input" type="text" name="lastName" placeholder="Last name" onChange={handleInput}/>
+                    <h4 className="register-input-field-label">Please Enter Last Name</h4>
+                    <input className="register-registration-input" type="text" name="lastName" placeholder="Last name" onChange={handleInput}/>
                 </div>
                 <div className="email-container">
-                    <h4 className="input-field-label">Please Enter Email</h4>
-                    <input className="registration-input" type="text" placeholder="abc@gmail.com" name="email" onChange={handleInput}/>
+                    <h4 className="register-input-field-label">Please Enter Email</h4>
+                    <input className="register-registration-input" type="text" placeholder="abc@gmail.com" name="email" onChange={handleInput}/>
                 </div>
                 <div className="password-container">
-                    <h4 className="input-field-label">Please Enter Password</h4>
-                    <input className="registration-input1" type="password" name="password" placeholder="password" onChange={handleInput}/>
+                    <h4 className="register-input-field-label">Please Enter Password</h4>
+                    <input className="register-registration-input" type="password" name="password" placeholder="password" onChange={handleInput}/>
                 </div>
                 
             </form>
