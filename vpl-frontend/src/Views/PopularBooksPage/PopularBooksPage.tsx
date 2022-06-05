@@ -55,12 +55,24 @@ export const PopularBooksPage: React.FC<any> = () => {
           return (
             <div className = 'popular-page-book-container'>
               <div className='popular-page-book-details' key={book.bookId}>
-                <p>Title: {book.title}</p>
-                <p>Author: {book.author}</p>
-                <p>Genre: {idToGenre(book.genreId)}</p>
-                <p>ISBN: {book.isbn}</p>
-                <p>Summay: {book.summary}</p>
-                <p>checkedOutCount: {book.checkedOutCount}</p>
+                <div className='popular-book-text'>
+                  <label>Title: {book.title}</label>
+                </div>
+                <div className='popular-book-text'>
+                  <label>Author: {book.author}</label>
+                </div>
+                <div className='popular-book-text'>
+                  <label>Genre: {idToGenre(book.genreId)}</label>
+                </div>
+                <div className='popular-book-text'>
+                  <label>ISBN: {book.isbn}</label>
+                </div>
+                <div className='popular-book-text'>
+                  <label>checkedOutCount: {book.checkedOutCount}</label>
+                </div>
+                <div className='popular-book-text'>
+                  <label>Summay: {book.summary}</label>
+                </div>
               </div>
               <div className='checkout-button'>
                   <button className='popular-page-book-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>

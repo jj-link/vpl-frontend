@@ -40,6 +40,7 @@
     background-color: var(--btn-blue);
     color: var(--btn-text-white);
     border-radius: 10px;
+    border: 2px solid var(--border-color);
     font-size: 1.21em;
     margin-left: 10px;
 }
@@ -63,6 +64,9 @@
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
+    border-radius: 5px;
+    border: 3px solid var(--border-color);
+    
 }
 .row1-preview-header{
     color: var(--btn-text-white);
@@ -86,6 +90,8 @@
    flex-basis: 300px;
    flex-grow: 0;
    flex-shrink: 0;
+   border-radius: 5px;
+   border: 2px solid var(--border-color);
 }
 .row1-book-details{
     color: var(--text-color);
@@ -101,6 +107,8 @@
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
+    border-radius: 5px;
+    border: 3px solid var(--border-color);
 }
 
 .row2-preview-header{
@@ -125,6 +133,8 @@
    flex-basis: 300px;
    flex-grow: 0;
    flex-shrink: 0;
+   border-radius: 5px;
+   border: 2px solid var(--border-color);
 }
 .row2-book-details{
     color: var(--text-color);
@@ -140,6 +150,8 @@
     text-align: center;
     margin: auto;
     margin-bottom: 20px;
+    border-radius: 5px;
+    border: 3px solid var(--border-color);
 }
 .row3-preview-header{
     color: var(--btn-text-white);
@@ -161,6 +173,8 @@
    flex-basis: 300px;
    flex-grow: 0;
    flex-shrink: 0;
+   border-radius: 5px;
+   border: 2px solid var(--border-color);
 }
 .row3-book-details{
     color: var(--text-color);
