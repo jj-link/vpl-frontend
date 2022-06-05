@@ -54,11 +54,24 @@ export const RecentBooksPage: React.FC<any> = () => {
           return (
             <div className = 'recent-page-book-container'>
               <div className='recent-page-book-details' key={book.bookId}>
-                <p>Title: {book.title}</p>
-                <p>Author: {book.author}</p>
-                <p>Genre: {idToGenre(book.genreId)}</p>
-                <p>ISBN: {book.isbn}</p>
-                <p>Summay: {book.summary}</p>
+                <div className='inner-text-div'>
+                  <label>Title: {book.title}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Author: {book.author}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Genre: {idToGenre(book.genreId)}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>ISBN: {book.isbn}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Year Published: {book.yearPublished}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Summay: {book.summary}</label>
+                </div>
               </div>
               <div className='checkout-button'>
                   <button className='recent-page-book-checkout-btn' data-id={book.isbn} onClick={handleCheckout}>Checkout</button>

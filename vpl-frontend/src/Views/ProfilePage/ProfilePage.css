@@ -34,7 +34,8 @@ h1{
 .profile-body{
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    width: 500px;
+    border-radius: 10px;
     border: 1px solid var(--grey);
     padding: 20px;
     background-color: var(--container-color);

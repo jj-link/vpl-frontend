@@ -96,13 +96,27 @@ export const SearchResultsList: React.FC<any> = () => {
           return (
             <div className = 'searched-result-book-container'>
               <div className='searched-result-book-details'>
-                <p>Title: {book.title}</p>
-                <p>Author: {book.author}</p>
-                <p>Genre: {idToGenre(book.genreId)}</p>
-                <p>ISBN: {book.isbn}</p>
-                <p>Year Published: {book.yearPublished}</p>
-                <p>Checked Out Count: {book.checkedOutCount}</p>
-                <p>Summary: {book.summary}</p>
+              <div className='inner-text-div'>
+                  <label>Title: {book.title}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Author: {book.author}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Genre: {idToGenre(book.genreId)}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>ISBN: {book.isbn}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Year Published: {book.yearPublished}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Checked Out Count: {book.checkedOutCount}</label>
+                </div>
+                <div className='inner-text-div'>
+                  <label>Summary: {book.summary}</label>
+                </div>
               </div>
               <div className='searched-result-book-buttons'>  
               { isOwner()?  
