@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Store';
 import { deleteBook} from '../../Slices/BookSlice';
 import {Link} from 'react-router-dom';
-//import "./DeleteBookForm.css";
+import "./DeleteBookForm.css";
 export const DeleteBookForm: React.FC = () => {
     const [isbn, setIsbn] = useState<number>(0);
     const dispatch: AppDispatch = useDispatch();
@@ -17,23 +17,24 @@ export const DeleteBookForm: React.FC = () => {
         dispatch(deleteBook(isbn));
     }
     return(
-        <div className="delete-book">
+    <div className='delete-book-page'>
+        <div className="delete-book-form">
             <div className="header-container">
                 <h1 className="delete-book-header">Delete a Book</h1>
             </div>
             <form className="delete-book-form">
                 <div className="input-container">
-                    <h4 className="input-field-label">Please Enter isbn of book you would like to delete</h4>
+                    <label className="input-field-label">Please Enter isbn of book you would like to delete</label>
                     <input className="isbn-input" type="number" name="isbn" onChange={handleInput}/>
                 </div>   
             </form>
             <div className='buttons'>
-                <button className="delete-button" onClick={handleDeleteBook}>Delete</button>
+                <button className="delete-button" onClick={handleDeleteBook}>Delete Book</button>
                 <Link to={"/ownerhome"} className="nav-ownerhome">
-                    <button className='back-button'>Back</button>
+                    <button className='back-button'>Back to Home</button>
                 </Link>
-            </div>
-           
+            </div>       
         </div>
+    </div>
     )
 }

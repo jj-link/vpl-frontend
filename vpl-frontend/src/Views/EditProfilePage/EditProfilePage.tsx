@@ -19,7 +19,7 @@ export const EditProfilePage:React.FC = () => {
     }, [userState.isLoggedIn])
 
     return (
-        <div>
+        <div className="edit-profile-page">
             <Navbar />
             <EditProfileForm/>
         </div>
