@@ -1,13 +1,13 @@
 :root {
-    --bg: #A1B5D8;
-    --title: #432361;
-    --container: #343461;
-    --label: #816897;
-    --input-back:#d1a2f7;
-    --nav-bar: #2A2F3C;
-    --nav-link-btn: #5f42b1;
-    --font-color: #9079d1;
-}
+    --border-color: #000;
+    --grey: #2d2e2e;
+    --btn-blue: #3891a6;
+    --btn-text-white: #fbfbfb;
+    --body-color: #b0c4de;
+    --inner-container-color: #add8e6;
+    --container-color: #6bbeba;
+    --text-color: #0a232b;
+  }
 .my-books-page{
     display: flex;
     flex-direction: column;
@@ -15,27 +15,32 @@
 }
 .my-books-page-title{
     font-size: 2.6em;
-    color: var(--title);
+    color: var(--text-color);
 }
 .my-books-page-container{
-    background-color: var(--container);
+    background-color: var(--container-color);
     width: 700px;
-    height: 500px;
+    height: 580px;
     margin-bottom: 20px;
+    margin-top: 15px;
     text-align: center;
 }
 .my-books-page-details{
-    color: var(--font-color);
+    background-color: var(--inner-container-color);
+    color: var(--text-color);
     font-size: 2.2em;
-    font-weight: bolder;
     margin-left: 15px;
+    margin-right: 15px;
+    height: 480px
 }
 .my-books-page-home-button{
     margin-top: 10px;
     margin-bottom: 20px;
 }
 .my-books-page-btn{
-    background-color: var(--nav-link-btn);
+    background-color: var(--btn-blue);
     border-radius: 10px;
-    font-size: 1.9em;
+    font-size: 1.8em;
+    width: 120px;
+    color: var(--btn-text-white);
 }

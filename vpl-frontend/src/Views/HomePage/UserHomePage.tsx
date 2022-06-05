@@ -72,7 +72,7 @@ export const UserHomePage: React.FC = () => {
             <Link to="/popularbooks"><button className="popular-button">Most Popular</button></Link>
             <Link to="/recentbooks"><button className='recent-button' >Recently Added</button></Link>
             <Link to="/mybooks"><button className='mybooks-button' >View My Books</button></Link>
-            <select className="select-genre" onChange={handleGenre} >
+            <select className="user-homepage-select-genre" onChange={handleGenre} >
                     <option selected disabled hidden>Genre</option>
                     <option value="1">Fantasy</option>
                     <option value="2">History</option>

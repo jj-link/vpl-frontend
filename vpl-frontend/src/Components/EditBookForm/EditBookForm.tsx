@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate} from "react-router-dom";
 import { editBook } from "../../Slices/BookSlice";
 import { AppDispatch, RootState } from "../../Store";
+import './EditBookForm.css';
 
 export const EditBookForm:React.FC = () => {
 
@@ -67,20 +68,20 @@ export const EditBookForm:React.FC = () => {
 
     return(
         <div className="edit-book">
-            <div className="header-container">
+            <div className="edit-book-header-container">
                 <h1 className="edit-book-header">Edit Book</h1>
             </div>
             <form className="edit-book-form">
                 <div className="title-container">
-                    <h4 className="input-field-label">Title</h4>
-                    <input className="edit-book-input" type="text" name="title" placeholder={bookInfo?.title} value={title} onChange={handleInput}/>
+                    <h4 className="edit-book-input-field-label">Title</h4>
+                    <input className="edit-book-add-book-input" type="text" name="title" placeholder={bookInfo?.title} value={title} onChange={handleInput}/>
                 </div>
                 <div className="author-container">
-                    <h4 className="input-field-label">Author</h4>
-                    <input className="edit-book-input" type="text" name="author" placeholder={bookInfo?.author} value={author} onChange={handleInput}/>
+                    <h4 className="edit-book-input-field-label">Author</h4>
+                    <input className="edit-book-add-book-input" type="text" name="author" placeholder={bookInfo?.author} value={author} onChange={handleInput}/>
                 </div>
                 <div className="genre-id-container">
-                    <h4 className="input-field-label">Please Select Genre</h4>
+                    <h4 className="edit-book-input-field-label">Please Select Genre</h4>
                     <select className="select-genre" name="genreId" onChange={handleSelect}>
                         <option value="none" selected disabled hidden>Genre</option>
                         <option value="1">Fantasy</option>
@@ -91,23 +92,23 @@ export const EditBookForm:React.FC = () => {
                     </select>
                 </div>
                 <div className="summary-container">
-                    <h4 className="input-field-label">Summary</h4>
-                    <input className="edit-book-input" type="text" name="summary" placeholder={bookInfo?.summary} onChange={handleInput}/>
+                    <h4 className="edit-book-input-field-label">Summary</h4>
+                    <input className="edit-book-add-book-input" type="text" name="summary" placeholder={bookInfo?.summary} onChange={handleInput}/>
                 </div>
                 <div className="isbn-container">
-                    <h4 className="input-field-label">ISBN</h4>
-                    <input className="edit-book-input" type="number" name="isbn" placeholder={bookInfo?.isbn.toString()} onChange={handleInput}/>
+                    <h4 className="edit-book-input-field-label">ISBN</h4>
+                    <input className="edit-book-add-book-input" type="number" name="isbn" placeholder={bookInfo?.isbn.toString()} onChange={handleInput}/>
                 </div>
                 <div className="year-published-container">
-                    <h4 className="input-field-label">Year Published</h4>
-                    <input className="edit-book-input" type="number" name="yearPublished" placeholder={bookInfo?.yearPublished.toString()} onChange={handleInput}/>
+                    <h4 className="edit-book-input-field-label">Year Published</h4>
+                    <input className="edit-book-add-book-input" type="number" name="yearPublished" placeholder={bookInfo?.yearPublished.toString()} onChange={handleInput}/>
                 </div>
                 
             </form>
             <div className='edit-book-buttons'>
-                <button className="edit-button" onClick={handleEditBook}>Edit Book</button>
+                <button className="edit-book-edit-btn" onClick={handleEditBook}>Edit Book</button>
                 <Link to={"/ownerhome"} className="nav-ownerhome">
-                    <button className='back-button'>Back To Home</button>
+                    <button className='edit-book-back-btn'>Back To Home</button>
                 </Link>
             </div>
     
