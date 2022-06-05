@@ -6,7 +6,7 @@
     --text-white: #fbfbfb;
 }
 
-.edit-profile{
+.add-book{
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-.edit-profile-header{
+.add-book-header{
     color: #0f0f0f;
 }
 
@@ -28,7 +28,7 @@
     font-size: 22pt;
 }
 
-.edit-profile-input{
+.add-book-input{
     height: 20px;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -43,7 +43,24 @@
     text-align: center;
 }
 
-.buttons {
+.select-genre{
+    width: 100%;
+    background-color: var(--text-white);
+    color: #0f0f0f;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: auto;
+    padding-left: 25px;
+    padding-right: 25px; 
+    border: 2px solid var(--border-color);
+    font-size: 14pt;
+    text-align: left;
+
+}
+
+.add-book-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -52,15 +69,15 @@
     margin-left: 25px; 
   }
 
-.update-button {
+.add-button {
     background-color: var(--btn-blue);
     color: var(--text-white);
-    width: 50%;
+    width: 130px;
     height: 40px;
     border: 1px solid var(--grey);
     border-radius: 10px;
     margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 25px;
     padding: auto;
     font-size: 1rem;
     font-weight: bold;
@@ -82,3 +99,5 @@
     text-align: center;
     cursor: pointer;
   }
+
+

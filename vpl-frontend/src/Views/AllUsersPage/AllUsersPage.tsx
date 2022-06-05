@@ -22,10 +22,10 @@ export const AllUsersPage: React.FC<any> = () => {
           return (
             <div className = 'user-container'>
               <div className='user-details' key={user.userId}>
-                <p className='all-user-page-info'>UserID: {user.userId}</p>
-                <p className='all-user-page-info'>First Name: {user.firstName}</p>
-                <p className='all-user-page-info'>Last Name: {user.lastName}</p>
-                <p className='all-user-page-info'>Email: {user.email}</p>
+                <label className='all-user-page-info'>UserID: {user.userId}</label>
+                <label className='all-user-page-info'>First Name: {user.firstName}</label>
+                <label className='all-user-page-info'>Last Name: {user.lastName}</label>
+                <label className='all-user-page-info'>Email: {user.email}</label>
               </div>
             </div>
           );

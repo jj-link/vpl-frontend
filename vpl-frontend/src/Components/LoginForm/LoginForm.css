@@ -1,121 +1,121 @@
 :root {
-  --border-color: #000;
-  --grey: #2d2e2e;
-  --btn-blue: #3891a6;
-  --btn-text-white: #fbfbfb;
-  --body-color: #b0c4de;
-  --inner-container-color: #add8e6;
-  --container-color: #6bbeba;
-  --text-color: #0a232b;
-}
- 
-  .login {
-    width: 55%;
-    height: fit-content;
-    /* width: 80%;
-    height: 80%; */
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
-    border-radius: 5px;
-    border: 1px solid var(--grey);
-    padding: 20px;
-    background-color: var(--container-color);
+    --border-color: #000;
+    --grey: #2d2e2e;
+    --btn-blue: #3891a6;
+    --btn-text-white: #fbfbfb;
+    --body-color: #b0c4de;
+    --inner-container-color: #add8e6;
+    --container-color: #6bbeba;
+    --text-color: #0a232b;
   }
+   
+    .login {
+      width: 55%;
+      height: fit-content;
+      /* width: 80%;
+      height: 80%; */
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    
+      border-radius: 5px;
+      border: 1px solid var(--grey);
+      padding: 20px;
+      background-color: var(--container-color);
+    }
+  
+    
+    .login-header {
+      margin-bottom: 50px;
+      text-align: center;
+      color: var(--text-color);
+      font-size: 30pt;
+      font-weight: bold;
+    }
+    
+    .inputDiv:not('last') {
+      margin-bottom: 16px;
+    }
+  
+    .input-container {
+      text-align: center;
+      font-size: 8pt;
+    }
+    
+    .input-field-label {
+      color: var(--text-color);
+      margin-left: 4px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+    
+  
+    .login-input {
+      height: 40px;
+      margin-bottom: 10px;
+      background-color: var(--text-white);
+      width: 90%;
+      border-radius: 10px;
+      padding: auto;
+      padding-left: 25px;
+      padding-right: 25px; 
+      border: 2px solid var(--border-color);
+      font-size: 14pt;
+      text-align: center;
+    }
+    
+    ::placeholder {
+      color: var(--grey);
+    }
+    
+    .loginInput:focus {
+      outline-width: 0;
+    }
+  
+    .buttons {
+      text-align: center;  
+    }
+    
+    .login-button {
+      background-color: var(--btn-blue);
+      color: var(--text-white);
+      width: 300px;
+      height: 40px;
+      border: 1px solid var(--grey);
+      border-radius: 10px;
+      margin-top: 20px;
+      padding: auto;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .login-button:hover {
+      transform: scale(0.98);
+      transition: 0.5s;
+      background-color: var(--accent);
+    }
+  
+    .register-button{
+      background-color: var(--btn-blue);
+      color: var(--text-white);
+      width: 300px;
+      height: 40px;
+      border: 1px solid var(--grey);
+      border-radius: 10px;
 
-  
-  .login-header {
-    margin-bottom: 50px;
-    text-align: center;
-    color: var(--text-color);
-    font-size: 30pt;
-    font-weight: bold;
+      margin-top: 20px;
+      padding: auto;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
   }
   
-  .inputDiv:not('last') {
-    margin-bottom: 16px;
-  }
-
-  .input-container {
-    text-align: center;
-    font-size: 8pt;
-  }
-  
-  .input-field-label {
-    color: var(--text-color);
-    margin-left: 4px;
-    margin-bottom: 10px;
-    align-items: center;
-  }
-  
-
-  .login-input {
-    height: 40px;
-    margin-bottom: 10px;
-    background-color: var(--text-white);
-    width: 90%;
-    border-radius: 10px;
-    padding: auto;
-    padding-left: 25px;
-    padding-right: 25px; 
-    border: 2px solid var(--border-color);
-    font-size: 14pt;
-    text-align: center;
-  }
-  
-  ::placeholder {
-    color: var(--grey);
-  }
-  
-  .loginInput:focus {
-    outline-width: 0;
-  }
-
-  .buttons {
-    text-align: center;  
-  }
-  
-  .login-button {
-    background-color: var(--btn-blue);
-    color: var(--text-white);
-    width: 50%;
-    height: 40px;
-    border: 1px solid var(--grey);
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: auto;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    transform: scale(0.98);
-    transition: 0.5s;
-    background-color: var(--accent);
-  }
-
-  .register-button{
-    background-color: var(--btn-blue);
-    color: var(--text-white);
-    width: 50%;
-    height: 40px;
-    border: 1px solid var(--grey);
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: auto;
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-}
-
-.register-button:hover {
-    transform: scale(0.98);
-    transition: 0.5s;
-    background-color: var(--accent);
-  }
-
+  .register-button:hover {
+      transform: scale(0.98);
+      transition: 0.5s;
+      background-color: var(--accent);
+    }

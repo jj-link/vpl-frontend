@@ -37,11 +37,10 @@ export const OwnerHomePage: React.FC = () => {
             <Navbar/>
             <div className="owner-home-body">
                 {/* 1st row */}
-                <div className="Owner-row1">
                     <div className="action-container">
                         <h3 className="textHeader"> Add a New Book</h3>
                         <Link to="/addbook" style={{ textDecoration: 'none' }}>
-                            <button className="owner-action-button1">New Book</button>
+                            <button className="owner-action-button">New Book</button>
                         </Link>
                     </div>
 
@@ -49,18 +48,16 @@ export const OwnerHomePage: React.FC = () => {
                         <h3 className="textHeader">Delete a Book</h3>
 
                         <Link to="/deletebook" style={{ textDecoration: 'none' }}>
-                            <button className="owner-action-button2">Delete Book</button>
+                            <button className="owner-action-button">Delete Book</button>
                         </Link>
                     </div>
-                </div>
 
       {/* 2nd row */}
-                <div className="Owner-row2">
                     <div className="action-container">
                         <h3 className="textHeader">Update a Book Listing</h3>
                       
                         <Link to="/search" style={{ textDecoration: 'none' }}>
-                        <button className="owner-action-button3" >
+                        <button className="owner-action-button" >
                         Update Book
                         </button>
                         </Link>
@@ -68,13 +65,12 @@ export const OwnerHomePage: React.FC = () => {
                     <div className="action-container">
                         <h3 className="textHeader">View all User Accounts</h3>
                         <Link to="/allusers" style={{ textDecoration: 'none' }}>
-                        <button className="owner-action-button4" onClick={handleGetAllUsers}>
+                        <button className="owner-action-button" onClick={handleGetAllUsers}>
                         View all Users
                         </button>
                         </Link>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
