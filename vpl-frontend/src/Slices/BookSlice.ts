@@ -35,7 +35,7 @@ export const addBook = createAsyncThunk(
         try {
             //axios.defaults.withCredentials = true;
             //console.log(credentials);
-            const res = await axios.post('http://localhost:8000/book/create', credentials);
+            const res = await axios.post('http://3.96.174.192:8000/book/create', credentials);
             return res.data;
         }
         catch (e) {
@@ -61,7 +61,7 @@ export const editBook = createAsyncThunk(
         try {
             //axios.defaults.withCredentials = true;
             console.log(credentials);
-            const res = await axios.put('http://localhost:8000/book/update', credentials);
+            const res = await axios.put('http://3.96.174.192:8000/book/update', credentials);
             //console.log(res.data);
             return res.data;
         }
@@ -77,7 +77,7 @@ export const getAllBooks = createAsyncThunk(
     async (thunkAPI) => {
     try {
         //axios.defaults.withCredentials = true;
-        const res = await axios.get('http://localhost:8000/book/get-all-books');
+        const res = await axios.get('http://3.96.174.192:8000/book/get-all-books');
         //console.log(res.data);
         return res.data;
       } catch (e) {
@@ -91,7 +91,7 @@ export const getPopularBooks = createAsyncThunk(
   async (thunkAPI) => {
   try {
       //axios.defaults.withCredentials = true;
-      const res = await axios.get('http://localhost:8000/book/get-books-most-popular');
+      const res = await axios.get('http://3.96.174.192:8000/book/get-books-most-popular');
       //console.log(res.data);
       return res.data;
     } catch (e) {
@@ -105,7 +105,7 @@ export const getRecentBooks = createAsyncThunk(
   async (thunkAPI) => {
   try {
       //axios.defaults.withCredentials = true;
-      const res = await axios.get('http://localhost:8000/book/recent');
+      const res = await axios.get('http://3.96.174.192:8000/book/recent');
       //console.log(res.data);
       return res.data;
     } catch (e) {
@@ -121,7 +121,7 @@ export const getMyBooks = createAsyncThunk(
     try {
         //axios.defaults.withCredentials = true;
         //console.log(userId);
-        const res = await axios.get(`http://localhost:8000/user/checkout-show/${userId}`);
+        const res = await axios.get(`http://3.96.174.192:8000/user/checkout-show/${userId}`);
         //console.log(res.data);
         return res.data;
       } catch (e) {
@@ -135,7 +135,7 @@ export const deleteBook = createAsyncThunk(
     async (isbn: number, thunkAPI) => {
         
         try {
-            const res = await axios.delete('http://localhost:8000/book/remove-books-by-isbn', {data:{isbn}})
+            const res = await axios.delete('http://3.96.174.192:8000/book/remove-books-by-isbn', {data:{isbn}})
             //console.log(res.data);
             return res.data;
         }
@@ -151,7 +151,7 @@ export const getBooksByGenreId = createAsyncThunk(
     async (genreId: number, thunkAPI) => {
         //console.log(genreId);
         try {
-            let res = await axios.get(`http://localhost:8000/book/get-books-by-genreId/${genreId}`)
+            let res = await axios.get(`http://3.96.174.192:8000/book/get-books-by-genreId/${genreId}`)
             //console.log(res.data);
             return res.data;
         }
@@ -168,7 +168,7 @@ export const getBookByIsbn = createAsyncThunk(
     async (isbn: number | undefined, thunkAPI) => {
         //console.log(isbn);
         try {
-            let res = await axios.get(`http://localhost:8000/book/get-books-by-isbn/${isbn}`)
+            let res = await axios.get(`http://3.96.174.192:8000/book/get-books-by-isbn/${isbn}`)
             //console.log(res.data);
             return res.data;
         }
@@ -190,7 +190,7 @@ export const checkoutBook = createAsyncThunk(
     try {
         //axios.defaults.withCredentials = true;
         //console.log("from checkout book" + credentials);
-        const res = await axios.post('http://localhost:8000/user/checkout-book', credentials);
+        const res = await axios.post('http://3.96.174.192:8000/user/checkout-book', credentials);
         //console.log(res.data);
         return res.data;
       } catch (e) {
@@ -205,7 +205,7 @@ export const searchBooks = createAsyncThunk(
     async (input: string, thunkAPI) => {
         console.log(input);
         try {
-            let res = await axios.get(`http://localhost:8000/book/search/${input}`)
+            let res = await axios.get(`http://3.96.174.192:8000/book/search/${input}`)
             console.log(res.data);
             return res.data;
         }

@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk(
     async (credentials: Login, thunkAPI) => {
         try {
             //axios.defaults.withCredentials = true;
-            const res = await axios.post('http://localhost:8000/user/login', credentials);
+            const res = await axios.post('http://3.96.174.192:8000/user/login', credentials);
             userData = res.data;
             console.log(userData);
             return {
@@ -70,7 +70,7 @@ export const registerUser = createAsyncThunk(
         try {
             //axios.defaults.withCredentials = true;
             console.log(credentials);
-            const res = await axios.post('http://localhost:8000/user/register', credentials);
+            const res = await axios.post('http://3.96.174.192:8000/user/register', credentials);
             console.log(res.data);
             return res.data;
         }
@@ -87,7 +87,7 @@ export const getAllUsers = createAsyncThunk(
   
       try {
         //axios.defaults.withCredentials = true;
-        const res = await axios.get('http://localhost:8000/user/all-users');
+        const res = await axios.get('http://3.96.174.192:8000/user/all-users');
         console.log(res.data);
   
         return res.data;
@@ -104,7 +104,7 @@ export const logout = createAsyncThunk(
     async (thunkAPI) => {
         try{
             //axios.defaults.withCredentials = true;
-            //const res = axios.get("http://localhost:8000/user/logout");
+            //const res = axios.get("http://3.96.174.192:8000/user/logout");
         } catch(e){
             console.log(e);
         }
@@ -124,7 +124,7 @@ export const editProfile = createAsyncThunk(
     async (credentials: EditUser, thunkAPI) => {
         try {
             //axios.defaults.withCredentials = true;
-            const res = await axios.post('http://localhost:8000/user/edit', credentials);
+            const res = await axios.post('http://3.96.174.192:8000/user/edit', credentials);
 
             return{
                 userId: res.data.userId,
